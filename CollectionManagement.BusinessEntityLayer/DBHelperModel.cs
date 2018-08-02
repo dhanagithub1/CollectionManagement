@@ -11,5 +11,11 @@ namespace CollectionManagement.BusinessEntityLayer
         public List<KeyValuePair<string, string>> StoreProcedureParameters { get; set; }
 
         public string StoredProcedureName { get; set; }
+
+        public DBHelperModel()
+        {
+            StoredProcedureName = "";
+            StoreProcedureParameters = new List<KeyValuePair<string, string>>();
+        }
     }
 }

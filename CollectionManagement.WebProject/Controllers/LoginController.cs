@@ -15,6 +15,8 @@ namespace CollectionManagement.WebProject.Controllers
         // GET: Login
         public ActionResult Index()
         {
+            Session.Clear();
+            Session.Abandon();
             return View();
         }
 
@@ -27,14 +29,29 @@ namespace CollectionManagement.WebProject.Controllers
                 {
                     UserModel userModel = new UserModel();
                     userModel = userBL.ValidateUser(loginViewModel.UserName, loginViewModel.Password);
-                    return RedirectToAction("Dashboard");
+                    if (userModel.OperationStatus == 1)
+                    {
+                        Session["UserModel"] = userModel;
+                        return RedirectToAction("Index", "Dashboard");
+                    }
+                    else if (userModel.OperationStatus == 2)
+                    {
+                        ModelState.AddModelError("", userModel.OperationMessage);
+                    }
+                    return View("Index");
                 }
             }
             catch (Exception e)
             {
                 throw e;
             }
-            return null;
+        }
+
+        public ActionResult LogOut()
+        {
+            Session.Clear();
+            Session.Abandon();
+            return RedirectToAction("Index");
         }
     }
 }

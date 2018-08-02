@@ -1,6 +1,7 @@
 ﻿using CollectionManagement.BusinessEntityLayer;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.Common;
 using System.Data.SqlClient;
@@ -13,25 +14,24 @@ namespace CollectionManagement.DataAccessLayer
     public class DBHelper
     {
 #if DEBUG
-        private static string defaultConnectionString = "Data Source=localhost;Initial Catalog=GLOBOBH_MapaAntenas;Integrated Security=SSPI";
+        private static string defaultConnectionString = ConfigurationManager.ConnectionStrings["DBConnection"].ConnectionString;
 #else
         private static string defaultConnectionString = "";
 #endif
-       
+
         private static SqlConnection _connection = null;
         public DBHelper()
         {
             _connection = new SqlConnection(defaultConnectionString);
         }
 
-        public DataSet ExecuteProcedure(DBHelperModel dbHelperModel)
+        public DataTable ExecuteProcedure(DBHelperModel dbHelperModel)
         {
             try
             {
-                var results = new DataSet();
                 using (SqlCommand command = new SqlCommand(dbHelperModel.StoredProcedureName, _connection))
                 {
-                    _connection.Open();                  
+                    _connection.Open();
                     command.CommandType = CommandType.StoredProcedure;
                     command.CommandTimeout = 600;
 
@@ -42,10 +42,11 @@ namespace CollectionManagement.DataAccessLayer
                             command.Parameters.Add(new SqlParameter { ParameterName = parameterItem.Key, Value = parameterItem.Value });
                         }
                     }
-                    SqlDataAdapter da = new SqlDataAdapter(command);
-                    da.Fill(results);
+                    SqlDataReader results = command.ExecuteReader();
+                    DataTable dt = new DataTable();
+                    dt.Load(results);
 
-                    return results;
+                    return dt;
                 }
             }
             catch (Exception ex)

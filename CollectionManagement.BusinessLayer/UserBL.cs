@@ -32,7 +32,7 @@ namespace CollectionManagement.BusinessLayer
                 {
                     if (!String.IsNullOrEmpty(userName) && !String.IsNullOrEmpty(passwordString))
                     {
-                        userModel = userDB.ValidateUser(userName, passwordString);
+                        userModel = userDB.ValidateUser(userName, passwordString);                        
                     }
                     else
                     {

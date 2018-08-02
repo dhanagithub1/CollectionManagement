@@ -1,0 +1,9 @@
+﻿@using CollectionManagement.BusinessEntityLayer;
+@{
+    ViewBag.Title = "Index";
+    UserModel userModel = (UserModel)Session["UserModel"];
+}
+
+<h2>Index</h2>
+
+Welcome @userModel.FirstName , You are with Role : @userModel.RoleName
