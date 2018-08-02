@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CollectionManagement.BusinessEntityLayer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace CollectionManagement.BusinessLayer.Interface
 {
-    interface IUser
+    public interface IUser : IDisposable
     {
+        UserModel ValidateUser(string userName, string passwordString);
     }
 }

@@ -1,0 +1,1591 @@
+﻿@model CollectionManagement.BusinessEntityLayer.ViewModel.LoginViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+
+<html class="loading" lang="en" data-textdirection="ltr">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta name="description" content="Robust admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template.">
+    <meta name="keywords" content="admin template, robust admin template, dashboard template, flat admin template, responsive admin template, web app, crypto dashboard, bitcoin dashboard">
+    <meta name="author" content="PIXINVENT">
+    <title>Login Page - Robust - Responsive Bootstrap 4 Admin Dashboard Template for Web Application</title>
+    <link rel="apple-touch-icon" href="https://pixinvent.com/bootstrap-admin-template/robust/app-assets/images/ico/apple-icon-120.png">
+    <link rel="shortcut icon" type="image/x-icon" href="https://pixinvent.com/bootstrap-admin-template/robust/app-assets/images/ico/favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Muli:300,400,500,700" rel="stylesheet">
+    <!-- BEGIN VENDOR CSS-->
+    <link rel="stylesheet" type="text/css" href="https://pixinvent.com/bootstrap-admin-template/robust/app-assets/css/vendors.css">
+    <link rel="stylesheet" type="text/css" href="https://pixinvent.com/bootstrap-admin-template/robust/app-assets/vendors/css/forms/icheck/icheck.css">
+    <link rel="stylesheet" type="text/css" href="https://pixinvent.com/bootstrap-admin-template/robust/app-assets/vendors/css/forms/icheck/custom.css">
+    <!-- END VENDOR CSS-->
+    <!-- BEGIN ROBUST CSS-->
+    <link rel="stylesheet" type="text/css" href="https://pixinvent.com/bootstrap-admin-template/robust/app-assets/css/app.css">
+    <!-- END ROBUST CSS-->
+    <!-- BEGIN Page Level CSS-->
+    <link rel="stylesheet" type="text/css" href="https://pixinvent.com/bootstrap-admin-template/robust/app-assets/css/core/menu/menu-types/vertical-menu.css">
+    <link rel="stylesheet" type="text/css" href="https://pixinvent.com/bootstrap-admin-template/robust/app-assets/css/core/colors/palette-gradient.css">
+    <link rel="stylesheet" type="text/css" href="https://pixinvent.com/bootstrap-admin-template/robust/app-assets/css/pages/login-register.css">
+    <!-- END Page Level CSS-->
+    <!-- BEGIN Custom CSS-->
+    <link rel="stylesheet" type="text/css" href="https://pixinvent.com/bootstrap-admin-template/robust/assets/css/style.css">
+    <!-- END Custom CSS-->
+</head>
+<body class="vertical-layout vertical-menu 1-column   menu-expanded blank-page blank-page" data-open="click" data-menu="vertical-menu" data-col="1-column">
+    <!-- ////////////////////////////////////////////////////////////////////////////-->
+    <div class="app-content content">
+        <div class="content-wrapper">
+            <div class="content-header row">
+            </div>
+            <div class="content-body">
+                <section class="flexbox-container">
+                    <div class="col-12 d-flex align-items-center justify-content-center">
+                        <div class="col-md-4 col-10 box-shadow-2 p-0">
+                            <div class="card border-grey border-lighten-3 m-0">
+                                <div class="card-header border-0">
+                                    <div class="card-title text-center">
+                                        <div class="p-1"><img src="https://pixinvent.com/bootstrap-admin-template/robust/app-assets/images/logo/logo-dark.png" alt="branding logo"></div>
+                                    </div>
+                                    <h6 class="card-subtitle line-on-side text-muted text-center font-small-3 pt-2"><span>Login with Robust</span></h6>
+                                </div>
+                                <div class="card-content">
+                                    <div class="card-body">
+                                        <form class="form-horizontal form-simple" action="index.html" novalidate>
+                                            <fieldset class="form-group position-relative has-icon-left mb-0">
+                                                @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control form-control-lg input-lg" } })
+                                                <input type="text" class="form-control form-control-lg input-lg" id="user-name" placeholder="Your Username" required>
+                                                <div class="form-control-position">
+                                                    <i class="ft-user"></i>
+                                                </div>
+                                            </fieldset>
+                                            <fieldset class="form-group position-relative has-icon-left">
+                                                <input type="password" class="form-control form-control-lg input-lg" id="user-password" placeholder="Enter Password" required>
+                                                <div class="form-control-position">
+                                                    <i class="fa fa-key"></i>
+                                                </div>
+                                            </fieldset>
+                                            <div class="form-group row">
+                                                <div class="col-md-6 col-12 text-center text-md-left">
+                                                    <fieldset>
+                                                        <input type="checkbox" id="remember-me" class="chk-remember">
+                                                        <label for="remember-me"> Remember Me</label>
+                                                    </fieldset>
+                                                </div>
+                                                <div class="col-md-6 col-12 text-center text-md-right"><a href="recover-password.html" class="card-link">Forgot Password?</a></div>
+                                            </div>
+                                            <button type="submit" class="btn btn-info btn-lg btn-block"><i class="ft-unlock"></i> Login</button>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="">
+                                        <p class="float-sm-left text-center m-0"><a href="recover-password.html" class="card-link">Recover password</a></p>
+                                        <p class="float-sm-right text-center m-0">New to Moden Admin? <a href="register-simple.html" class="card-link">Sign Up</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </div>
+    <!-- ////////////////////////////////////////////////////////////////////////////-->
+    <!-- BEGIN VENDOR JS-->
+    <script src="https://pixinvent.com/bootstrap-admin-template/robust/app-assets/vendors/js/vendors.min.js" type="text/javascript"></script>
+    <!-- BEGIN VENDOR JS-->
+    <!-- BEGIN PAGE VENDOR JS-->
+    <script src="https://pixinvent.com/bootstrap-admin-template/robust/app-assets/vendors/js/forms/icheck/icheck.min.js" type="text/javascript"></script>
+    <script src="https://pixinvent.com/bootstrap-admin-template/robust/app-assets/vendors/js/forms/validation/jqBootstrapValidation.js" type="text/javascript"></script>
+    <!-- END PAGE VENDOR JS-->
+    <!-- BEGIN ROBUST JS-->
+    <script src="https://pixinvent.com/bootstrap-admin-template/robust/app-assets/js/core/app-menu.js" type="text/javascript"></script>
+    <script src="https://pixinvent.com/bootstrap-admin-template/robust/app-assets/js/core/app.js" type="text/javascript"></script>
+    <!-- END ROBUST JS-->
+    <!-- BEGIN PAGE LEVEL JS-->
+    <script src="https://pixinvent.com/bootstrap-admin-template/robust/app-assets/js/scripts/forms/form-login-register.js" type="text/javascript"></script>
+    <!-- END PAGE LEVEL JS-->
+    <style>
+                /*=========================================================================================
+            File Name: vertical-menu.scss
+            Description: A calssic vertical style menu with expand and collops support. It support
+            light & dark version, filpped layout, right side icons, native scroll and borders menu
+            item seperation.
+            ----------------------------------------------------------------------------------------
+            Item Name: Robust - Responsive Admin Template
+            Version: 2.0
+            Author: PIXINVENT
+            Author URL: http://www.themeforest.net/user/pixinvent
+        ==========================================================================================*/
+                @@media (min-width: 576px) {
+                    body.vertical-layout.vertical-menu.menu-flipped .main-menu {
+                        right: 0;
+                    }
+                }
+
+                body.vertical-layout.vertical-menu .navbar .navbar-brand {
+                    white-space: nowrap;
+                }
+
+                body.vertical-layout.vertical-menu.menu-expanded .navbar .navbar-header {
+                    float: left;
+                    width: 240px;
+                }
+
+                body.vertical-layout.vertical-menu.menu-expanded .navbar.navbar-brand-center .navbar-header {
+                    float: left;
+                    width: auto;
+                }
+
+                body.vertical-layout.vertical-menu.menu-expanded .navbar .navbar-container {
+                    margin-left: 240px;
+                }
+
+                body.vertical-layout.vertical-menu.menu-expanded .navbar .navbar-brand .brand-text {
+                    animation: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) 0s normal forwards 1 fadein;
+                }
+
+                body.vertical-layout.vertical-menu.menu-expanded .main-menu {
+                    width: 240px;
+                    transition: 300ms ease all;
+                    backface-visibility: hidden;
+                }
+
+                    body.vertical-layout.vertical-menu.menu-expanded .main-menu .navigation .navigation-header .ft-minus {
+                        display: none;
+                    }
+
+                    body.vertical-layout.vertical-menu.menu-expanded .main-menu .navigation > li > a > i {
+                        margin-right: 12px;
+                    }
+
+                        body.vertical-layout.vertical-menu.menu-expanded .main-menu .navigation > li > a > i:before {
+                            font-size: 1.2rem;
+                        }
+
+                    body.vertical-layout.vertical-menu.menu-expanded .main-menu .navigation > li > a > span.badge {
+                        position: absolute;
+                        right: 20px;
+                        top: 10px;
+                    }
+
+                    body.vertical-layout.vertical-menu.menu-expanded .main-menu .navigation li.has-sub > a:not(.mm-next):after {
+                        content: "\f105";
+                        font-family: 'FontAwesome';
+                        font-size: 1rem;
+                        display: inline-block;
+                        position: absolute;
+                        right: 20px;
+                        top: 12px;
+                        transform: rotate(0deg);
+                        transition: -webkit-transform 0.2s ease-in-out;
+                    }
+
+                    body.vertical-layout.vertical-menu.menu-expanded .main-menu .navigation li.has-sub .has-sub > a:not(.mm-next):after {
+                        top: 8px;
+                    }
+
+                    body.vertical-layout.vertical-menu.menu-expanded .main-menu .navigation li.open > a:not(.mm-next):after {
+                        transform: rotate(90deg);
+                    }
+
+                    body.vertical-layout.vertical-menu.menu-expanded .main-menu .main-menu-footer {
+                        width: 240px;
+                    }
+
+                body.vertical-layout.vertical-menu.menu-expanded .content,
+                body.vertical-layout.vertical-menu.menu-expanded .footer {
+                    margin-left: 240px;
+                }
+
+                body.vertical-layout.vertical-menu.menu-expanded .navbar-brand-center .content,
+                body.vertical-layout.vertical-menu.menu-expanded .navbar-brand-center .footer {
+                    margin-left: 0;
+                }
+
+                body.vertical-layout.vertical-menu.menu-collapsed .navbar .navbar-header {
+                    float: left;
+                    width: 60px;
+                }
+
+                body.vertical-layout.vertical-menu.menu-collapsed .navbar.navbar-brand-center .navbar-header {
+                    float: left;
+                    width: auto;
+                }
+
+                body.vertical-layout.vertical-menu.menu-collapsed .navbar .navbar-brand {
+                    padding: 17px 0px;
+                }
+
+                body.vertical-layout.vertical-menu.menu-collapsed .navbar .navbar-container {
+                    margin-left: 60px;
+                }
+
+                body.vertical-layout.vertical-menu.menu-collapsed .navbar .navbar-brand .brand-text {
+                    animation: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) 0s normal forwards 1 fadeout;
+                }
+
+                body.vertical-layout.vertical-menu.menu-collapsed .main-menu {
+                    width: 60px;
+                    transform: translateZ(-160px) translateX(-160px);
+                    transform: translate3d(0, 0, 0);
+                    transition: 300ms ease all;
+                }
+
+                    body.vertical-layout.vertical-menu.menu-collapsed .main-menu .main-menu-footer {
+                        width: 60px;
+                    }
+
+                    body.vertical-layout.vertical-menu.menu-collapsed .main-menu .main-menu-footer,
+                    body.vertical-layout.vertical-menu.menu-collapsed .main-menu .main-menu-header .media-body .media-heading,
+                    body.vertical-layout.vertical-menu.menu-collapsed .main-menu .main-menu-header .media-body .text-muted,
+                    body.vertical-layout.vertical-menu.menu-collapsed .main-menu .main-menu-header .media-right {
+                        display: none;
+                    }
+
+                    body.vertical-layout.vertical-menu.menu-collapsed .main-menu .main-menu-header .media-body {
+                        opacity: 0;
+                    }
+
+                    body.vertical-layout.vertical-menu.menu-collapsed .main-menu .user-content {
+                        padding: 20px 10px;
+                    }
+
+                    body.vertical-layout.vertical-menu.menu-collapsed .main-menu .main-menu-content > span.menu-title, body.vertical-layout.vertical-menu.menu-collapsed .main-menu .main-menu-content a.menu-title {
+                        right: -240px;
+                        width: 240px;
+                        font-weight: 600;
+                        color: #fff;
+                        text-transform: uppercase;
+                        text-align: left;
+                        background-color: #3BAFDA;
+                        border-color: #3BAFDA;
+                        padding: 14px 20px;
+                    }
+
+                    body.vertical-layout.vertical-menu.menu-collapsed .main-menu .main-menu-content > ul.menu-content {
+                        left: 60px;
+                        width: 240px;
+                        transition: visibility .25s,opacity .25s;
+                        box-shadow: 25px 5px 75px 2px rgba(64, 70, 74, 0.2);
+                        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+                        border-left: 1px solid rgba(0, 0, 0, 0.02);
+                    }
+
+                        body.vertical-layout.vertical-menu.menu-collapsed .main-menu .main-menu-content > ul.menu-content li {
+                            white-space: nowrap;
+                            position: relative;
+                        }
+
+                            body.vertical-layout.vertical-menu.menu-collapsed .main-menu .main-menu-content > ul.menu-content li a {
+                                display: block;
+                                padding: 8px 20px 8px 20px;
+                                transition: all 0.2s ease;
+                            }
+
+                            body.vertical-layout.vertical-menu.menu-collapsed .main-menu .main-menu-content > ul.menu-content li.has-sub > a:not(.mm-next):after {
+                                content: "\f105";
+                                font-family: 'FontAwesome';
+                                font-size: 1rem;
+                                display: inline-block;
+                                position: absolute;
+                                right: 20px;
+                                top: 12px;
+                                transform: rotate(0deg);
+                                transition: -webkit-transform 0.2s ease-in-out;
+                            }
+
+                            body.vertical-layout.vertical-menu.menu-collapsed .main-menu .main-menu-content > ul.menu-content li.has-sub .has-sub > a:not(.mm-next):after {
+                                top: 8px;
+                            }
+
+                            body.vertical-layout.vertical-menu.menu-collapsed .main-menu .main-menu-content > ul.menu-content li.open > a:not(.mm-next):after {
+                                transform: rotate(90deg);
+                            }
+
+                            body.vertical-layout.vertical-menu.menu-collapsed .main-menu .main-menu-content > ul.menu-content li:hover > a, body.vertical-layout.vertical-menu.menu-collapsed .main-menu .main-menu-content > ul.menu-content li.hover > a {
+                                transform: translateX(4px);
+                            }
+
+                                body.vertical-layout.vertical-menu.menu-collapsed .main-menu .main-menu-content > ul.menu-content li:hover > a > a, body.vertical-layout.vertical-menu.menu-collapsed .main-menu .main-menu-content > ul.menu-content li.hover > a > a {
+                                    transform: translateX(-4px);
+                                }
+
+                    body.vertical-layout.vertical-menu.menu-collapsed .main-menu .navigation {
+                        overflow: visible;
+                    }
+
+                        body.vertical-layout.vertical-menu.menu-collapsed .main-menu .navigation > li.navigation-header {
+                            padding: 22px 20px 8px 20px;
+                        }
+
+                            body.vertical-layout.vertical-menu.menu-collapsed .main-menu .navigation > li.navigation-header .ft-minus {
+                                display: block;
+                                font-size: 1.3rem;
+                            }
+
+                            body.vertical-layout.vertical-menu.menu-collapsed .main-menu .navigation > li.navigation-header span {
+                                display: none;
+                            }
+
+                        body.vertical-layout.vertical-menu.menu-collapsed .main-menu .navigation > li > a {
+                            padding: 10px 0px 10px 18px;
+                        }
+
+                            body.vertical-layout.vertical-menu.menu-collapsed .main-menu .navigation > li > a > span {
+                                visibility: hidden;
+                                opacity: 0;
+                                position: absolute;
+                                top: 0;
+                                right: -240px;
+                                width: 240px;
+                                font-weight: 600;
+                                color: #fff;
+                                text-align: left;
+                                background-color: #967ADC;
+                                border-color: #967ADC;
+                                padding: 14px 20px;
+                            }
+
+                            body.vertical-layout.vertical-menu.menu-collapsed .main-menu .navigation > li > a > i {
+                                margin-right: 0;
+                                font-size: 1.4rem;
+                                line-height: 1;
+                                visibility: visible;
+                                opacity: 1;
+                            }
+
+                        body.vertical-layout.vertical-menu.menu-collapsed .main-menu .navigation > li > ul {
+                            display: none;
+                        }
+
+                        body.vertical-layout.vertical-menu.menu-collapsed .main-menu .navigation > li > a > span {
+                            display: none;
+                        }
+
+                    body.vertical-layout.vertical-menu.menu-collapsed .main-menu .mTSWrapper {
+                        overflow: visible;
+                    }
+
+                body.vertical-layout.vertical-menu.menu-collapsed .content,
+                body.vertical-layout.vertical-menu.menu-collapsed .footer {
+                    margin-left: 60px;
+                }
+
+                body.vertical-layout.vertical-menu.menu-collapsed .navbar-brand-center .content,
+                body.vertical-layout.vertical-menu.menu-collapsed .navbar-brand-center .footer {
+                    margin-left: 0;
+                }
+
+                body.vertical-layout.vertical-menu.menu-collapsed.menu-flipped .content {
+                    margin: 0;
+                    margin-right: 60px;
+                }
+
+                @@media (min-width: 576px) {
+                    body.vertical-layout.vertical-menu.menu-collapsed.menu-flipped .main-menu {
+                        right: 0;
+                    }
+
+                        body.vertical-layout.vertical-menu.menu-collapsed.menu-flipped .main-menu span.menu-title {
+                            right: 60px;
+                        }
+
+                        body.vertical-layout.vertical-menu.menu-collapsed.menu-flipped .main-menu ul.menu-content {
+                            right: 60px;
+                            left: inherit;
+                        }
+                }
+
+                body.vertical-layout.vertical-menu.menu-collapsed.menu-flipped .navbar .navbar-header {
+                    float: right;
+                }
+
+                body.vertical-layout.vertical-menu.menu-collapsed.menu-flipped .navbar .navbar-container {
+                    margin: 0;
+                    margin-right: 60px;
+                }
+
+                body.vertical-layout.vertical-menu.menu-collapsed.menu-flipped .footer {
+                    margin: 0;
+                    margin-right: 60px;
+                }
+
+                [data-textdirection="rtl"] body.vertical-layout.vertical-menu.menu-collapsed .main-menu .navigation > li > a {
+                    padding: 14px 16px !important;
+                }
+
+                [data-textdirection="rtl"] body.vertical-layout.vertical-menu.menu-collapsed .main-menu .navigation > li.navigation-header .ft-minus {
+                    padding: 12px 0px;
+                }
+
+                @@media (min-width: 992px) {
+                    body.vertical-layout.vertical-menu.menu-flipped .content {
+                        margin: 0;
+                        margin-right: 240px;
+                    }
+
+                    body.vertical-layout.vertical-menu.menu-flipped .navbar .navbar-header {
+                        float: right;
+                    }
+
+                    body.vertical-layout.vertical-menu.menu-flipped .navbar .navbar-container {
+                        margin: 0;
+                        margin-right: 240px;
+                    }
+
+                    body.vertical-layout.vertical-menu.menu-flipped .footer {
+                        margin: 0;
+                        margin-right: 240px;
+                    }
+                }
+
+                @@media (max-width: 991.98px) {
+                    body.vertical-layout.vertical-menu .main-menu {
+                        width: 60px;
+                    }
+
+                        body.vertical-layout.vertical-menu .main-menu .main-menu-footer {
+                            width: 240px;
+                        }
+
+                    body.vertical-layout.vertical-menu .navbar .navbar-header {
+                        width: 60px;
+                    }
+
+                    body.vertical-layout.vertical-menu .content,
+                    body.vertical-layout.vertical-menu .footer {
+                        margin-left: 60px;
+                    }
+                }
+
+                @@media (max-width: 767.98px) {
+                    body.vertical-layout.vertical-menu .content,
+                    body.vertical-layout.vertical-menu .footer {
+                        margin-left: 0;
+                    }
+                }
+
+                @@keyframes fadein {
+                    from {
+                        opacity: 0;
+                    }
+
+                    to {
+                        opacity: 1;
+                    }
+                }
+
+                @@keyframes fadeout {
+                    from {
+                        opacity: 1;
+                    }
+
+                    to {
+                        opacity: 0;
+                    }
+                }
+
+                /*=========================================================================================
+            File Name: vertical-overlay-menu.scss
+            Description: A overlay style vertical menu with show and hide support. It support
+            light & dark version, filpped layout, right side icons, native scroll and borders menu
+            item seperation.
+            ----------------------------------------------------------------------------------------
+            Item Name: Robust - Responsive Admin Template
+            Version: 2.0
+            Author: PIXINVENT
+            Author URL: http://www.themeforest.net/user/pixinvent
+        ==========================================================================================*/
+                .vertical-overlay-menu .content {
+                    margin-left: 0;
+                }
+
+                .vertical-overlay-menu .navbar .navbar-header {
+                    float: left;
+                    width: 240px;
+                }
+
+                .vertical-overlay-menu .navbar.navbar-brand-center .navbar-container {
+                    margin-left: 0;
+                }
+
+                .vertical-overlay-menu .navbar.navbar-brand-center .navbar-header {
+                    float: left;
+                    width: auto;
+                }
+
+                .vertical-overlay-menu .main-menu, .vertical-overlay-menu.menu-hide .main-menu {
+                    opacity: 0;
+                    transform: translate3d(0, 0, 0);
+                    transition: width .25s,opacity .25s,transform .25s;
+                    width: 240px;
+                    left: -240px;
+                }
+
+                    .vertical-overlay-menu .main-menu .navigation .navigation-header .ft-minus {
+                        display: none;
+                    }
+
+                    .vertical-overlay-menu .main-menu .navigation > li > a > i {
+                        margin-right: 12px;
+                    }
+
+                        .vertical-overlay-menu .main-menu .navigation > li > a > i:before {
+                            font-size: 1.2rem;
+                            transition: 200ms ease all;
+                        }
+
+                    .vertical-overlay-menu .main-menu .navigation li.has-sub > a:not(.mm-next):after {
+                        content: "\f105";
+                        font-family: 'FontAwesome';
+                        font-size: 1rem;
+                        display: inline-block;
+                        position: absolute;
+                        right: 20px;
+                        top: 12px;
+                        transform: rotate(0deg);
+                        transition: -webkit-transform 0.2s ease-in-out;
+                    }
+
+                    .vertical-overlay-menu .main-menu .navigation li.has-sub .has-sub > a:not(.mm-next):after {
+                        top: 8px;
+                    }
+
+                    .vertical-overlay-menu .main-menu .navigation li.open > a:not(.mm-next):after {
+                        transform: rotate(90deg);
+                    }
+
+                    .vertical-overlay-menu .main-menu .main-menu-footer {
+                        bottom: 55px;
+                    }
+
+                    .vertical-overlay-menu .main-menu .main-menu-footer {
+                        width: 240px;
+                    }
+
+                .vertical-overlay-menu.menu-open .main-menu {
+                    opacity: 1;
+                    transform: translate3d(240px, 0, 0);
+                    transition: width .25s,opacity .25s,transform .25s;
+                }
+
+                .vertical-overlay-menu.menu-flipped .main-menu {
+                    right: -240px;
+                    left: inherit;
+                }
+
+                .vertical-overlay-menu.menu-flipped .navbar .navbar-container {
+                    margin: 0;
+                    margin-right: 240px;
+                }
+
+                .vertical-overlay-menu.menu-flipped .navbar .navbar-header {
+                    float: right;
+                }
+
+                .vertical-overlay-menu.menu-flipped.menu-open .main-menu {
+                    transform: translate3d(-240px, 0, 0);
+                }
+
+                @@media (max-width: 991.98px) {
+                    .vertical-overlay-menu .main-menu .main-menu-footer {
+                        bottom: 0px;
+                    }
+                }
+
+                .bg-gradient-x-white .card-header, .bg-gradient-x-white .card-footer, .bg-gradient-y-white .card-header, .bg-gradient-y-white .card-footer, .bg-gradient-directional-white .card-header, .bg-gradient-directional-white .card-footer, .bg-gradient-radial-white .card-header, .bg-gradient-radial-white .card-footer, .bg-gradient-striped-white .card-header, .bg-gradient-striped-white .card-footer, .bg-gradient-x2-white .card-header, .bg-gradient-x2-white .card-footer, .bg-gradient-y2-white .card-header, .bg-gradient-y2-white .card-footer {
+                    background-color: transparent;
+                }
+
+                .bg-gradient-x-black .card-header, .bg-gradient-x-black .card-footer, .bg-gradient-y-black .card-header, .bg-gradient-y-black .card-footer, .bg-gradient-directional-black .card-header, .bg-gradient-directional-black .card-footer, .bg-gradient-radial-black .card-header, .bg-gradient-radial-black .card-footer, .bg-gradient-striped-black .card-header, .bg-gradient-striped-black .card-footer, .bg-gradient-x2-black .card-header, .bg-gradient-x2-black .card-footer, .bg-gradient-y2-black .card-header, .bg-gradient-y2-black .card-footer {
+                    background-color: transparent;
+                }
+
+                .bg-gradient-x-primary {
+                    background-image: linear-gradient(to right, #704ACF 0%, #AC92EC 100%);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-y-primary {
+                    background-image: linear-gradient(to bottom, #704ACF 0%, #AC92EC 100%);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-directional-primary {
+                    background-image: linear-gradient(45deg, #704ACF, #AC92EC);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-x2-primary {
+                    background-image: linear-gradient(to right, #AC92EC, #967ADC 50%, #BCAAE9);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-y2-primary {
+                    background-image: linear-gradient(#AC92EC, #967ADC 50%, #BCAAE9);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-radial-primary {
+                    background-image: radial-gradient(circle, #704ACF, #AC92EC);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-striped-primary {
+                    background-image: linear-gradient(45deg, #BCAAE9 25%, transparent 25%, transparent 50%, #BCAAE9 50%, #BCAAE9 75%, transparent 75%, transparent);
+                }
+
+                    .bg-gradient-x-primary .card-header, .bg-gradient-x-primary .card-footer, .bg-gradient-y-primary .card-header, .bg-gradient-y-primary .card-footer, .bg-gradient-directional-primary .card-header, .bg-gradient-directional-primary .card-footer, .bg-gradient-radial-primary .card-header, .bg-gradient-radial-primary .card-footer, .bg-gradient-striped-primary .card-header, .bg-gradient-striped-primary .card-footer, .bg-gradient-x2-primary .card-header, .bg-gradient-x2-primary .card-footer, .bg-gradient-y2-primary .card-header, .bg-gradient-y2-primary .card-footer {
+                        background-color: transparent;
+                    }
+
+                .bg-gradient-x-success {
+                    background-image: linear-gradient(to right, #298D74 0%, #48CFAD 100%);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-y-success {
+                    background-image: linear-gradient(to bottom, #298D74 0%, #48CFAD 100%);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-directional-success {
+                    background-image: linear-gradient(45deg, #298D74, #48CFAD);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-x2-success {
+                    background-image: linear-gradient(to right, #48CFAD, #37BC9B 50%, #60D0B4);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-y2-success {
+                    background-image: linear-gradient(#48CFAD, #37BC9B 50%, #60D0B4);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-radial-success {
+                    background-image: radial-gradient(circle, #298D74, #48CFAD);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-striped-success {
+                    background-image: linear-gradient(45deg, #60D0B4 25%, transparent 25%, transparent 50%, #60D0B4 50%, #60D0B4 75%, transparent 75%, transparent);
+                }
+
+                    .bg-gradient-x-success .card-header, .bg-gradient-x-success .card-footer, .bg-gradient-y-success .card-header, .bg-gradient-y-success .card-footer, .bg-gradient-directional-success .card-header, .bg-gradient-directional-success .card-footer, .bg-gradient-radial-success .card-header, .bg-gradient-radial-success .card-footer, .bg-gradient-striped-success .card-header, .bg-gradient-striped-success .card-footer, .bg-gradient-x2-success .card-header, .bg-gradient-x2-success .card-footer, .bg-gradient-y2-success .card-header, .bg-gradient-y2-success .card-footer {
+                        background-color: transparent;
+                    }
+
+                .bg-gradient-x-info {
+                    background-image: linear-gradient(to right, #228EB6 0%, #4FC1E9 100%);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-y-info {
+                    background-image: linear-gradient(to bottom, #228EB6 0%, #4FC1E9 100%);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-directional-info {
+                    background-image: linear-gradient(45deg, #228EB6, #4FC1E9);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-x2-info {
+                    background-image: linear-gradient(to right, #4FC1E9, #3BAFDA 50%, #6EC4E4);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-y2-info {
+                    background-image: linear-gradient(#4FC1E9, #3BAFDA 50%, #6EC4E4);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-radial-info {
+                    background-image: radial-gradient(circle, #228EB6, #4FC1E9);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-striped-info {
+                    background-image: linear-gradient(45deg, #6EC4E4 25%, transparent 25%, transparent 50%, #6EC4E4 50%, #6EC4E4 75%, transparent 75%, transparent);
+                }
+
+                    .bg-gradient-x-info .card-header, .bg-gradient-x-info .card-footer, .bg-gradient-y-info .card-header, .bg-gradient-y-info .card-footer, .bg-gradient-directional-info .card-header, .bg-gradient-directional-info .card-footer, .bg-gradient-radial-info .card-header, .bg-gradient-radial-info .card-footer, .bg-gradient-striped-info .card-header, .bg-gradient-striped-info .card-footer, .bg-gradient-x2-info .card-header, .bg-gradient-x2-info .card-footer, .bg-gradient-y2-info .card-header, .bg-gradient-y2-info .card-footer {
+                        background-color: transparent;
+                    }
+
+                .bg-gradient-x-warning {
+                    background-image: linear-gradient(to right, #EFA50B 0%, #FFCE54 100%);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-y-warning {
+                    background-image: linear-gradient(to bottom, #EFA50B 0%, #FFCE54 100%);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-directional-warning {
+                    background-image: linear-gradient(45deg, #EFA50B, #FFCE54);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-x2-warning {
+                    background-image: linear-gradient(to right, #FFCE54, #F6BB42 50%, #F9D07C);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-y2-warning {
+                    background-image: linear-gradient(#FFCE54, #F6BB42 50%, #F9D07C);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-radial-warning {
+                    background-image: radial-gradient(circle, #EFA50B, #FFCE54);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-striped-warning {
+                    background-image: linear-gradient(45deg, #F9D07C 25%, transparent 25%, transparent 50%, #F9D07C 50%, #F9D07C 75%, transparent 75%, transparent);
+                }
+
+                    .bg-gradient-x-warning .card-header, .bg-gradient-x-warning .card-footer, .bg-gradient-y-warning .card-header, .bg-gradient-y-warning .card-footer, .bg-gradient-directional-warning .card-header, .bg-gradient-directional-warning .card-footer, .bg-gradient-radial-warning .card-header, .bg-gradient-radial-warning .card-footer, .bg-gradient-striped-warning .card-header, .bg-gradient-striped-warning .card-footer, .bg-gradient-x2-warning .card-header, .bg-gradient-x2-warning .card-footer, .bg-gradient-y2-warning .card-header, .bg-gradient-y2-warning .card-footer {
+                        background-color: transparent;
+                    }
+
+                .bg-gradient-x-danger {
+                    background-image: linear-gradient(to right, #BC2534 0%, #ED5565 100%);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-y-danger {
+                    background-image: linear-gradient(to bottom, #BC2534 0%, #ED5565 100%);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-directional-danger {
+                    background-image: linear-gradient(45deg, #BC2534, #ED5565);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-x2-danger {
+                    background-image: linear-gradient(to right, #ED5565, #DA4453 50%, #E47782);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-y2-danger {
+                    background-image: linear-gradient(#ED5565, #DA4453 50%, #E47782);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-radial-danger {
+                    background-image: radial-gradient(circle, #BC2534, #ED5565);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-striped-danger {
+                    background-image: linear-gradient(45deg, #E47782 25%, transparent 25%, transparent 50%, #E47782 50%, #E47782 75%, transparent 75%, transparent);
+                }
+
+                    .bg-gradient-x-danger .card-header, .bg-gradient-x-danger .card-footer, .bg-gradient-y-danger .card-header, .bg-gradient-y-danger .card-footer, .bg-gradient-directional-danger .card-header, .bg-gradient-directional-danger .card-footer, .bg-gradient-radial-danger .card-header, .bg-gradient-radial-danger .card-footer, .bg-gradient-striped-danger .card-header, .bg-gradient-striped-danger .card-footer, .bg-gradient-x2-danger .card-header, .bg-gradient-x2-danger .card-footer, .bg-gradient-y2-danger .card-header, .bg-gradient-y2-danger .card-footer {
+                        background-color: transparent;
+                    }
+
+                .bg-gradient-x-red {
+                    background-image: linear-gradient(to right, #D32F2F 0%, #E57373 100%);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-y-red {
+                    background-image: linear-gradient(to bottom, #D32F2F 0%, #E57373 100%);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-directional-red {
+                    background-image: linear-gradient(45deg, #D32F2F, #E57373);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-x2-red {
+                    background-image: linear-gradient(to right, #E57373, #F44336 50%, #EF9A9A);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-y2-red {
+                    background-image: linear-gradient(#E57373, #F44336 50%, #EF9A9A);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-radial-red {
+                    background-image: radial-gradient(circle, #D32F2F, #E57373);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-striped-red {
+                    background-image: linear-gradient(45deg, #EF9A9A 25%, transparent 25%, transparent 50%, #EF9A9A 50%, #EF9A9A 75%, transparent 75%, transparent);
+                }
+
+                    .bg-gradient-x-red .card-header, .bg-gradient-x-red .card-footer, .bg-gradient-y-red .card-header, .bg-gradient-y-red .card-footer, .bg-gradient-directional-red .card-header, .bg-gradient-directional-red .card-footer, .bg-gradient-radial-red .card-header, .bg-gradient-radial-red .card-footer, .bg-gradient-striped-red .card-header, .bg-gradient-striped-red .card-footer, .bg-gradient-x2-red .card-header, .bg-gradient-x2-red .card-footer, .bg-gradient-y2-red .card-header, .bg-gradient-y2-red .card-footer {
+                        background-color: transparent;
+                    }
+
+                .bg-gradient-x-pink {
+                    background-image: linear-gradient(to right, #C2185B 0%, #F06292 100%);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-y-pink {
+                    background-image: linear-gradient(to bottom, #C2185B 0%, #F06292 100%);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-directional-pink {
+                    background-image: linear-gradient(45deg, #C2185B, #F06292);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-x2-pink {
+                    background-image: linear-gradient(to right, #F06292, #E91E63 50%, #F48FB1);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-y2-pink {
+                    background-image: linear-gradient(#F06292, #E91E63 50%, #F48FB1);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-radial-pink {
+                    background-image: radial-gradient(circle, #C2185B, #F06292);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-striped-pink {
+                    background-image: linear-gradient(45deg, #F48FB1 25%, transparent 25%, transparent 50%, #F48FB1 50%, #F48FB1 75%, transparent 75%, transparent);
+                }
+
+                    .bg-gradient-x-pink .card-header, .bg-gradient-x-pink .card-footer, .bg-gradient-y-pink .card-header, .bg-gradient-y-pink .card-footer, .bg-gradient-directional-pink .card-header, .bg-gradient-directional-pink .card-footer, .bg-gradient-radial-pink .card-header, .bg-gradient-radial-pink .card-footer, .bg-gradient-striped-pink .card-header, .bg-gradient-striped-pink .card-footer, .bg-gradient-x2-pink .card-header, .bg-gradient-x2-pink .card-footer, .bg-gradient-y2-pink .card-header, .bg-gradient-y2-pink .card-footer {
+                        background-color: transparent;
+                    }
+
+                .bg-gradient-x-purple {
+                    background-image: linear-gradient(to right, #7B1FA2 0%, #BA68C8 100%);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-y-purple {
+                    background-image: linear-gradient(to bottom, #7B1FA2 0%, #BA68C8 100%);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-directional-purple {
+                    background-image: linear-gradient(45deg, #7B1FA2, #BA68C8);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-x2-purple {
+                    background-image: linear-gradient(to right, #BA68C8, #9C27B0 50%, #CE93D8);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-y2-purple {
+                    background-image: linear-gradient(#BA68C8, #9C27B0 50%, #CE93D8);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-radial-purple {
+                    background-image: radial-gradient(circle, #7B1FA2, #BA68C8);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-striped-purple {
+                    background-image: linear-gradient(45deg, #CE93D8 25%, transparent 25%, transparent 50%, #CE93D8 50%, #CE93D8 75%, transparent 75%, transparent);
+                }
+
+                    .bg-gradient-x-purple .card-header, .bg-gradient-x-purple .card-footer, .bg-gradient-y-purple .card-header, .bg-gradient-y-purple .card-footer, .bg-gradient-directional-purple .card-header, .bg-gradient-directional-purple .card-footer, .bg-gradient-radial-purple .card-header, .bg-gradient-radial-purple .card-footer, .bg-gradient-striped-purple .card-header, .bg-gradient-striped-purple .card-footer, .bg-gradient-x2-purple .card-header, .bg-gradient-x2-purple .card-footer, .bg-gradient-y2-purple .card-header, .bg-gradient-y2-purple .card-footer {
+                        background-color: transparent;
+                    }
+
+                .bg-gradient-x-deep-purple {
+                    background-image: linear-gradient(to right, #512DA8 0%, #9575CD 100%);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-y-deep-purple {
+                    background-image: linear-gradient(to bottom, #512DA8 0%, #9575CD 100%);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-directional-deep-purple {
+                    background-image: linear-gradient(45deg, #512DA8, #9575CD);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-x2-deep-purple {
+                    background-image: linear-gradient(to right, #9575CD, #673AB7 50%, #B39DDB);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-y2-deep-purple {
+                    background-image: linear-gradient(#9575CD, #673AB7 50%, #B39DDB);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-radial-deep-purple {
+                    background-image: radial-gradient(circle, #512DA8, #9575CD);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-striped-deep-purple {
+                    background-image: linear-gradient(45deg, #B39DDB 25%, transparent 25%, transparent 50%, #B39DDB 50%, #B39DDB 75%, transparent 75%, transparent);
+                }
+
+                    .bg-gradient-x-deep-purple .card-header, .bg-gradient-x-deep-purple .card-footer, .bg-gradient-y-deep-purple .card-header, .bg-gradient-y-deep-purple .card-footer, .bg-gradient-directional-deep-purple .card-header, .bg-gradient-directional-deep-purple .card-footer, .bg-gradient-radial-deep-purple .card-header, .bg-gradient-radial-deep-purple .card-footer, .bg-gradient-striped-deep-purple .card-header, .bg-gradient-striped-deep-purple .card-footer, .bg-gradient-x2-deep-purple .card-header, .bg-gradient-x2-deep-purple .card-footer, .bg-gradient-y2-deep-purple .card-header, .bg-gradient-y2-deep-purple .card-footer {
+                        background-color: transparent;
+                    }
+
+                .bg-gradient-x-indigo {
+                    background-image: linear-gradient(to right, #303F9F 0%, #7986CB 100%);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-y-indigo {
+                    background-image: linear-gradient(to bottom, #303F9F 0%, #7986CB 100%);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-directional-indigo {
+                    background-image: linear-gradient(45deg, #303F9F, #7986CB);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-x2-indigo {
+                    background-image: linear-gradient(to right, #7986CB, #3F51B5 50%, #9FA8DA);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-y2-indigo {
+                    background-image: linear-gradient(#7986CB, #3F51B5 50%, #9FA8DA);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-radial-indigo {
+                    background-image: radial-gradient(circle, #303F9F, #7986CB);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-striped-indigo {
+                    background-image: linear-gradient(45deg, #9FA8DA 25%, transparent 25%, transparent 50%, #9FA8DA 50%, #9FA8DA 75%, transparent 75%, transparent);
+                }
+
+                    .bg-gradient-x-indigo .card-header, .bg-gradient-x-indigo .card-footer, .bg-gradient-y-indigo .card-header, .bg-gradient-y-indigo .card-footer, .bg-gradient-directional-indigo .card-header, .bg-gradient-directional-indigo .card-footer, .bg-gradient-radial-indigo .card-header, .bg-gradient-radial-indigo .card-footer, .bg-gradient-striped-indigo .card-header, .bg-gradient-striped-indigo .card-footer, .bg-gradient-x2-indigo .card-header, .bg-gradient-x2-indigo .card-footer, .bg-gradient-y2-indigo .card-header, .bg-gradient-y2-indigo .card-footer {
+                        background-color: transparent;
+                    }
+
+                .bg-gradient-x-blue {
+                    background-image: linear-gradient(to right, #1976D2 0%, #64B5F6 100%);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-y-blue {
+                    background-image: linear-gradient(to bottom, #1976D2 0%, #64B5F6 100%);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-directional-blue {
+                    background-image: linear-gradient(45deg, #1976D2, #64B5F6);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-x2-blue {
+                    background-image: linear-gradient(to right, #64B5F6, #2196F3 50%, #90CAF9);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-y2-blue {
+                    background-image: linear-gradient(#64B5F6, #2196F3 50%, #90CAF9);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-radial-blue {
+                    background-image: radial-gradient(circle, #1976D2, #64B5F6);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-striped-blue {
+                    background-image: linear-gradient(45deg, #90CAF9 25%, transparent 25%, transparent 50%, #90CAF9 50%, #90CAF9 75%, transparent 75%, transparent);
+                }
+
+                    .bg-gradient-x-blue .card-header, .bg-gradient-x-blue .card-footer, .bg-gradient-y-blue .card-header, .bg-gradient-y-blue .card-footer, .bg-gradient-directional-blue .card-header, .bg-gradient-directional-blue .card-footer, .bg-gradient-radial-blue .card-header, .bg-gradient-radial-blue .card-footer, .bg-gradient-striped-blue .card-header, .bg-gradient-striped-blue .card-footer, .bg-gradient-x2-blue .card-header, .bg-gradient-x2-blue .card-footer, .bg-gradient-y2-blue .card-header, .bg-gradient-y2-blue .card-footer {
+                        background-color: transparent;
+                    }
+
+                .bg-gradient-x-light-blue {
+                    background-image: linear-gradient(to right, #0288D1 0%, #4FC3F7 100%);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-y-light-blue {
+                    background-image: linear-gradient(to bottom, #0288D1 0%, #4FC3F7 100%);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-directional-light-blue {
+                    background-image: linear-gradient(45deg, #0288D1, #4FC3F7);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-x2-light-blue {
+                    background-image: linear-gradient(to right, #4FC3F7, #03A9F4 50%, #81D4FA);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-y2-light-blue {
+                    background-image: linear-gradient(#4FC3F7, #03A9F4 50%, #81D4FA);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-radial-light-blue {
+                    background-image: radial-gradient(circle, #0288D1, #4FC3F7);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-striped-light-blue {
+                    background-image: linear-gradient(45deg, #81D4FA 25%, transparent 25%, transparent 50%, #81D4FA 50%, #81D4FA 75%, transparent 75%, transparent);
+                }
+
+                    .bg-gradient-x-light-blue .card-header, .bg-gradient-x-light-blue .card-footer, .bg-gradient-y-light-blue .card-header, .bg-gradient-y-light-blue .card-footer, .bg-gradient-directional-light-blue .card-header, .bg-gradient-directional-light-blue .card-footer, .bg-gradient-radial-light-blue .card-header, .bg-gradient-radial-light-blue .card-footer, .bg-gradient-striped-light-blue .card-header, .bg-gradient-striped-light-blue .card-footer, .bg-gradient-x2-light-blue .card-header, .bg-gradient-x2-light-blue .card-footer, .bg-gradient-y2-light-blue .card-header, .bg-gradient-y2-light-blue .card-footer {
+                        background-color: transparent;
+                    }
+
+                .bg-gradient-x-cyan {
+                    background-image: linear-gradient(to right, #0097A7 0%, #4DD0E1 100%);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-y-cyan {
+                    background-image: linear-gradient(to bottom, #0097A7 0%, #4DD0E1 100%);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-directional-cyan {
+                    background-image: linear-gradient(45deg, #0097A7, #4DD0E1);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-x2-cyan {
+                    background-image: linear-gradient(to right, #4DD0E1, #00BCD4 50%, #80DEEA);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-y2-cyan {
+                    background-image: linear-gradient(#4DD0E1, #00BCD4 50%, #80DEEA);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-radial-cyan {
+                    background-image: radial-gradient(circle, #0097A7, #4DD0E1);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-striped-cyan {
+                    background-image: linear-gradient(45deg, #80DEEA 25%, transparent 25%, transparent 50%, #80DEEA 50%, #80DEEA 75%, transparent 75%, transparent);
+                }
+
+                    .bg-gradient-x-cyan .card-header, .bg-gradient-x-cyan .card-footer, .bg-gradient-y-cyan .card-header, .bg-gradient-y-cyan .card-footer, .bg-gradient-directional-cyan .card-header, .bg-gradient-directional-cyan .card-footer, .bg-gradient-radial-cyan .card-header, .bg-gradient-radial-cyan .card-footer, .bg-gradient-striped-cyan .card-header, .bg-gradient-striped-cyan .card-footer, .bg-gradient-x2-cyan .card-header, .bg-gradient-x2-cyan .card-footer, .bg-gradient-y2-cyan .card-header, .bg-gradient-y2-cyan .card-footer {
+                        background-color: transparent;
+                    }
+
+                .bg-gradient-x-teal {
+                    background-image: linear-gradient(to right, #00796B 0%, #4DB6AC 100%);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-y-teal {
+                    background-image: linear-gradient(to bottom, #00796B 0%, #4DB6AC 100%);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-directional-teal {
+                    background-image: linear-gradient(45deg, #00796B, #4DB6AC);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-x2-teal {
+                    background-image: linear-gradient(to right, #4DB6AC, #009688 50%, #80CBC4);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-y2-teal {
+                    background-image: linear-gradient(#4DB6AC, #009688 50%, #80CBC4);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-radial-teal {
+                    background-image: radial-gradient(circle, #00796B, #4DB6AC);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-striped-teal {
+                    background-image: linear-gradient(45deg, #80CBC4 25%, transparent 25%, transparent 50%, #80CBC4 50%, #80CBC4 75%, transparent 75%, transparent);
+                }
+
+                    .bg-gradient-x-teal .card-header, .bg-gradient-x-teal .card-footer, .bg-gradient-y-teal .card-header, .bg-gradient-y-teal .card-footer, .bg-gradient-directional-teal .card-header, .bg-gradient-directional-teal .card-footer, .bg-gradient-radial-teal .card-header, .bg-gradient-radial-teal .card-footer, .bg-gradient-striped-teal .card-header, .bg-gradient-striped-teal .card-footer, .bg-gradient-x2-teal .card-header, .bg-gradient-x2-teal .card-footer, .bg-gradient-y2-teal .card-header, .bg-gradient-y2-teal .card-footer {
+                        background-color: transparent;
+                    }
+
+                .bg-gradient-x-green {
+                    background-image: linear-gradient(to right, #388E3C 0%, #81C784 100%);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-y-green {
+                    background-image: linear-gradient(to bottom, #388E3C 0%, #81C784 100%);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-directional-green {
+                    background-image: linear-gradient(45deg, #388E3C, #81C784);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-x2-green {
+                    background-image: linear-gradient(to right, #81C784, #4CAF50 50%, #A5D6A7);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-y2-green {
+                    background-image: linear-gradient(#81C784, #4CAF50 50%, #A5D6A7);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-radial-green {
+                    background-image: radial-gradient(circle, #388E3C, #81C784);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-striped-green {
+                    background-image: linear-gradient(45deg, #A5D6A7 25%, transparent 25%, transparent 50%, #A5D6A7 50%, #A5D6A7 75%, transparent 75%, transparent);
+                }
+
+                    .bg-gradient-x-green .card-header, .bg-gradient-x-green .card-footer, .bg-gradient-y-green .card-header, .bg-gradient-y-green .card-footer, .bg-gradient-directional-green .card-header, .bg-gradient-directional-green .card-footer, .bg-gradient-radial-green .card-header, .bg-gradient-radial-green .card-footer, .bg-gradient-striped-green .card-header, .bg-gradient-striped-green .card-footer, .bg-gradient-x2-green .card-header, .bg-gradient-x2-green .card-footer, .bg-gradient-y2-green .card-header, .bg-gradient-y2-green .card-footer {
+                        background-color: transparent;
+                    }
+
+                .bg-gradient-x-light-green {
+                    background-image: linear-gradient(to right, #689F38 0%, #AED581 100%);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-y-light-green {
+                    background-image: linear-gradient(to bottom, #689F38 0%, #AED581 100%);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-directional-light-green {
+                    background-image: linear-gradient(45deg, #689F38, #AED581);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-x2-light-green {
+                    background-image: linear-gradient(to right, #AED581, #8BC34A 50%, #C5E1A5);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-y2-light-green {
+                    background-image: linear-gradient(#AED581, #8BC34A 50%, #C5E1A5);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-radial-light-green {
+                    background-image: radial-gradient(circle, #689F38, #AED581);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-striped-light-green {
+                    background-image: linear-gradient(45deg, #C5E1A5 25%, transparent 25%, transparent 50%, #C5E1A5 50%, #C5E1A5 75%, transparent 75%, transparent);
+                }
+
+                    .bg-gradient-x-light-green .card-header, .bg-gradient-x-light-green .card-footer, .bg-gradient-y-light-green .card-header, .bg-gradient-y-light-green .card-footer, .bg-gradient-directional-light-green .card-header, .bg-gradient-directional-light-green .card-footer, .bg-gradient-radial-light-green .card-header, .bg-gradient-radial-light-green .card-footer, .bg-gradient-striped-light-green .card-header, .bg-gradient-striped-light-green .card-footer, .bg-gradient-x2-light-green .card-header, .bg-gradient-x2-light-green .card-footer, .bg-gradient-y2-light-green .card-header, .bg-gradient-y2-light-green .card-footer {
+                        background-color: transparent;
+                    }
+
+                .bg-gradient-x-lime {
+                    background-image: linear-gradient(to right, #AFB42B 0%, #DCE775 100%);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-y-lime {
+                    background-image: linear-gradient(to bottom, #AFB42B 0%, #DCE775 100%);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-directional-lime {
+                    background-image: linear-gradient(45deg, #AFB42B, #DCE775);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-x2-lime {
+                    background-image: linear-gradient(to right, #DCE775, #CDDC39 50%, #E6EE9C);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-y2-lime {
+                    background-image: linear-gradient(#DCE775, #CDDC39 50%, #E6EE9C);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-radial-lime {
+                    background-image: radial-gradient(circle, #AFB42B, #DCE775);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-striped-lime {
+                    background-image: linear-gradient(45deg, #E6EE9C 25%, transparent 25%, transparent 50%, #E6EE9C 50%, #E6EE9C 75%, transparent 75%, transparent);
+                }
+
+                    .bg-gradient-x-lime .card-header, .bg-gradient-x-lime .card-footer, .bg-gradient-y-lime .card-header, .bg-gradient-y-lime .card-footer, .bg-gradient-directional-lime .card-header, .bg-gradient-directional-lime .card-footer, .bg-gradient-radial-lime .card-header, .bg-gradient-radial-lime .card-footer, .bg-gradient-striped-lime .card-header, .bg-gradient-striped-lime .card-footer, .bg-gradient-x2-lime .card-header, .bg-gradient-x2-lime .card-footer, .bg-gradient-y2-lime .card-header, .bg-gradient-y2-lime .card-footer {
+                        background-color: transparent;
+                    }
+
+                .bg-gradient-x-yellow {
+                    background-image: linear-gradient(to right, #FBC02D 0%, #FFF176 100%);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-y-yellow {
+                    background-image: linear-gradient(to bottom, #FBC02D 0%, #FFF176 100%);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-directional-yellow {
+                    background-image: linear-gradient(45deg, #FBC02D, #FFF176);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-x2-yellow {
+                    background-image: linear-gradient(to right, #FFF176, #FFEB3B 50%, #FFF59D);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-y2-yellow {
+                    background-image: linear-gradient(#FFF176, #FFEB3B 50%, #FFF59D);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-radial-yellow {
+                    background-image: radial-gradient(circle, #FBC02D, #FFF176);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-striped-yellow {
+                    background-image: linear-gradient(45deg, #FFF59D 25%, transparent 25%, transparent 50%, #FFF59D 50%, #FFF59D 75%, transparent 75%, transparent);
+                }
+
+                    .bg-gradient-x-yellow .card-header, .bg-gradient-x-yellow .card-footer, .bg-gradient-y-yellow .card-header, .bg-gradient-y-yellow .card-footer, .bg-gradient-directional-yellow .card-header, .bg-gradient-directional-yellow .card-footer, .bg-gradient-radial-yellow .card-header, .bg-gradient-radial-yellow .card-footer, .bg-gradient-striped-yellow .card-header, .bg-gradient-striped-yellow .card-footer, .bg-gradient-x2-yellow .card-header, .bg-gradient-x2-yellow .card-footer, .bg-gradient-y2-yellow .card-header, .bg-gradient-y2-yellow .card-footer {
+                        background-color: transparent;
+                    }
+
+                .bg-gradient-x-amber {
+                    background-image: linear-gradient(to right, #FFA000 0%, #FFD54F 100%);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-y-amber {
+                    background-image: linear-gradient(to bottom, #FFA000 0%, #FFD54F 100%);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-directional-amber {
+                    background-image: linear-gradient(45deg, #FFA000, #FFD54F);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-x2-amber {
+                    background-image: linear-gradient(to right, #FFD54F, #FFC107 50%, #FFE082);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-y2-amber {
+                    background-image: linear-gradient(#FFD54F, #FFC107 50%, #FFE082);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-radial-amber {
+                    background-image: radial-gradient(circle, #FFA000, #FFD54F);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-striped-amber {
+                    background-image: linear-gradient(45deg, #FFE082 25%, transparent 25%, transparent 50%, #FFE082 50%, #FFE082 75%, transparent 75%, transparent);
+                }
+
+                    .bg-gradient-x-amber .card-header, .bg-gradient-x-amber .card-footer, .bg-gradient-y-amber .card-header, .bg-gradient-y-amber .card-footer, .bg-gradient-directional-amber .card-header, .bg-gradient-directional-amber .card-footer, .bg-gradient-radial-amber .card-header, .bg-gradient-radial-amber .card-footer, .bg-gradient-striped-amber .card-header, .bg-gradient-striped-amber .card-footer, .bg-gradient-x2-amber .card-header, .bg-gradient-x2-amber .card-footer, .bg-gradient-y2-amber .card-header, .bg-gradient-y2-amber .card-footer {
+                        background-color: transparent;
+                    }
+
+                .bg-gradient-x-orange {
+                    background-image: linear-gradient(to right, #F57C00 0%, #FFB74D 100%);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-y-orange {
+                    background-image: linear-gradient(to bottom, #F57C00 0%, #FFB74D 100%);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-directional-orange {
+                    background-image: linear-gradient(45deg, #F57C00, #FFB74D);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-x2-orange {
+                    background-image: linear-gradient(to right, #FFB74D, #FF9800 50%, #FFCC80);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-y2-orange {
+                    background-image: linear-gradient(#FFB74D, #FF9800 50%, #FFCC80);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-radial-orange {
+                    background-image: radial-gradient(circle, #F57C00, #FFB74D);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-striped-orange {
+                    background-image: linear-gradient(45deg, #FFCC80 25%, transparent 25%, transparent 50%, #FFCC80 50%, #FFCC80 75%, transparent 75%, transparent);
+                }
+
+                    .bg-gradient-x-orange .card-header, .bg-gradient-x-orange .card-footer, .bg-gradient-y-orange .card-header, .bg-gradient-y-orange .card-footer, .bg-gradient-directional-orange .card-header, .bg-gradient-directional-orange .card-footer, .bg-gradient-radial-orange .card-header, .bg-gradient-radial-orange .card-footer, .bg-gradient-striped-orange .card-header, .bg-gradient-striped-orange .card-footer, .bg-gradient-x2-orange .card-header, .bg-gradient-x2-orange .card-footer, .bg-gradient-y2-orange .card-header, .bg-gradient-y2-orange .card-footer {
+                        background-color: transparent;
+                    }
+
+                .bg-gradient-x-deep-orange {
+                    background-image: linear-gradient(to right, #E64A19 0%, #FF8A65 100%);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-y-deep-orange {
+                    background-image: linear-gradient(to bottom, #E64A19 0%, #FF8A65 100%);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-directional-deep-orange {
+                    background-image: linear-gradient(45deg, #E64A19, #FF8A65);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-x2-deep-orange {
+                    background-image: linear-gradient(to right, #FF8A65, #FF5722 50%, #FFAB91);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-y2-deep-orange {
+                    background-image: linear-gradient(#FF8A65, #FF5722 50%, #FFAB91);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-radial-deep-orange {
+                    background-image: radial-gradient(circle, #E64A19, #FF8A65);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-striped-deep-orange {
+                    background-image: linear-gradient(45deg, #FFAB91 25%, transparent 25%, transparent 50%, #FFAB91 50%, #FFAB91 75%, transparent 75%, transparent);
+                }
+
+                    .bg-gradient-x-deep-orange .card-header, .bg-gradient-x-deep-orange .card-footer, .bg-gradient-y-deep-orange .card-header, .bg-gradient-y-deep-orange .card-footer, .bg-gradient-directional-deep-orange .card-header, .bg-gradient-directional-deep-orange .card-footer, .bg-gradient-radial-deep-orange .card-header, .bg-gradient-radial-deep-orange .card-footer, .bg-gradient-striped-deep-orange .card-header, .bg-gradient-striped-deep-orange .card-footer, .bg-gradient-x2-deep-orange .card-header, .bg-gradient-x2-deep-orange .card-footer, .bg-gradient-y2-deep-orange .card-header, .bg-gradient-y2-deep-orange .card-footer {
+                        background-color: transparent;
+                    }
+
+                .bg-gradient-x-brown {
+                    background-image: linear-gradient(to right, #5D4037 0%, #A1887F 100%);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-y-brown {
+                    background-image: linear-gradient(to bottom, #5D4037 0%, #A1887F 100%);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-directional-brown {
+                    background-image: linear-gradient(45deg, #5D4037, #A1887F);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-x2-brown {
+                    background-image: linear-gradient(to right, #A1887F, #795548 50%, #BCAAA4);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-y2-brown {
+                    background-image: linear-gradient(#A1887F, #795548 50%, #BCAAA4);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-radial-brown {
+                    background-image: radial-gradient(circle, #5D4037, #A1887F);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-striped-brown {
+                    background-image: linear-gradient(45deg, #BCAAA4 25%, transparent 25%, transparent 50%, #BCAAA4 50%, #BCAAA4 75%, transparent 75%, transparent);
+                }
+
+                    .bg-gradient-x-brown .card-header, .bg-gradient-x-brown .card-footer, .bg-gradient-y-brown .card-header, .bg-gradient-y-brown .card-footer, .bg-gradient-directional-brown .card-header, .bg-gradient-directional-brown .card-footer, .bg-gradient-radial-brown .card-header, .bg-gradient-radial-brown .card-footer, .bg-gradient-striped-brown .card-header, .bg-gradient-striped-brown .card-footer, .bg-gradient-x2-brown .card-header, .bg-gradient-x2-brown .card-footer, .bg-gradient-y2-brown .card-header, .bg-gradient-y2-brown .card-footer {
+                        background-color: transparent;
+                    }
+
+                .bg-gradient-x-blue-grey {
+                    background-image: linear-gradient(to right, #455A64 0%, #90A4AE 100%);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-y-blue-grey {
+                    background-image: linear-gradient(to bottom, #455A64 0%, #90A4AE 100%);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-directional-blue-grey {
+                    background-image: linear-gradient(45deg, #455A64, #90A4AE);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-x2-blue-grey {
+                    background-image: linear-gradient(to right, #90A4AE, #607D8B 50%, #B0BEC5);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-y2-blue-grey {
+                    background-image: linear-gradient(#90A4AE, #607D8B 50%, #B0BEC5);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-radial-blue-grey {
+                    background-image: radial-gradient(circle, #455A64, #90A4AE);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-striped-blue-grey {
+                    background-image: linear-gradient(45deg, #B0BEC5 25%, transparent 25%, transparent 50%, #B0BEC5 50%, #B0BEC5 75%, transparent 75%, transparent);
+                }
+
+                    .bg-gradient-x-blue-grey .card-header, .bg-gradient-x-blue-grey .card-footer, .bg-gradient-y-blue-grey .card-header, .bg-gradient-y-blue-grey .card-footer, .bg-gradient-directional-blue-grey .card-header, .bg-gradient-directional-blue-grey .card-footer, .bg-gradient-radial-blue-grey .card-header, .bg-gradient-radial-blue-grey .card-footer, .bg-gradient-striped-blue-grey .card-header, .bg-gradient-striped-blue-grey .card-footer, .bg-gradient-x2-blue-grey .card-header, .bg-gradient-x2-blue-grey .card-footer, .bg-gradient-y2-blue-grey .card-header, .bg-gradient-y2-blue-grey .card-footer {
+                        background-color: transparent;
+                    }
+
+                .bg-gradient-x-grey {
+                    background-image: linear-gradient(to right, #616161 0%, #E0E0E0 100%);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-y-grey {
+                    background-image: linear-gradient(to bottom, #616161 0%, #E0E0E0 100%);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-directional-grey {
+                    background-image: linear-gradient(45deg, #616161, #E0E0E0);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-x2-grey {
+                    background-image: linear-gradient(to right, #E0E0E0, #9E9E9E 50%, #EEEEEE);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-y2-grey {
+                    background-image: linear-gradient(#E0E0E0, #9E9E9E 50%, #EEEEEE);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-radial-grey {
+                    background-image: radial-gradient(circle, #616161, #E0E0E0);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-striped-grey {
+                    background-image: linear-gradient(45deg, #EEEEEE 25%, transparent 25%, transparent 50%, #EEEEEE 50%, #EEEEEE 75%, transparent 75%, transparent);
+                }
+
+                    .bg-gradient-x-grey .card-header, .bg-gradient-x-grey .card-footer, .bg-gradient-y-grey .card-header, .bg-gradient-y-grey .card-footer, .bg-gradient-directional-grey .card-header, .bg-gradient-directional-grey .card-footer, .bg-gradient-radial-grey .card-header, .bg-gradient-radial-grey .card-footer, .bg-gradient-striped-grey .card-header, .bg-gradient-striped-grey .card-footer, .bg-gradient-x2-grey .card-header, .bg-gradient-x2-grey .card-footer, .bg-gradient-y2-grey .card-header, .bg-gradient-y2-grey .card-footer {
+                        background-color: transparent;
+                    }
+
+                .bg-gradient-x-grey-blue {
+                    background-image: linear-gradient(to right, #2C303B 0%, #6F85AD 100%);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-y-grey-blue {
+                    background-image: linear-gradient(to bottom, #2C303B 0%, #6F85AD 100%);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-directional-grey-blue {
+                    background-image: linear-gradient(45deg, #2C303B, #6F85AD);
+                    background-repeat: repeat-x;
+                }
+
+                .bg-gradient-x2-grey-blue {
+                    background-image: linear-gradient(to right, #6F85AD, #1B2942 50%, #B0BEC5);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-y2-grey-blue {
+                    background-image: linear-gradient(#6F85AD, #1B2942 50%, #B0BEC5);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-radial-grey-blue {
+                    background-image: radial-gradient(circle, #2C303B, #6F85AD);
+                    background-repeat: no-repeat;
+                }
+
+                .bg-gradient-striped-grey-blue {
+                    background-image: linear-gradient(45deg, #B0BEC5 25%, transparent 25%, transparent 50%, #B0BEC5 50%, #B0BEC5 75%, transparent 75%, transparent);
+                }
+
+                    .bg-gradient-x-grey-blue .card-header, .bg-gradient-x-grey-blue .card-footer, .bg-gradient-y-grey-blue .card-header, .bg-gradient-y-grey-blue .card-footer, .bg-gradient-directional-grey-blue .card-header, .bg-gradient-directional-grey-blue .card-footer, .bg-gradient-radial-grey-blue .card-header, .bg-gradient-radial-grey-blue .card-footer, .bg-gradient-striped-grey-blue .card-header, .bg-gradient-striped-grey-blue .card-footer, .bg-gradient-x2-grey-blue .card-header, .bg-gradient-x2-grey-blue .card-footer, .bg-gradient-y2-grey-blue .card-header, .bg-gradient-y2-grey-blue .card-footer {
+                        background-color: transparent;
+                    }
+
+                .form-simple input[type="text"] {
+                    margin-bottom: -1px;
+                    border-bottom-right-radius: 0;
+                    border-bottom-left-radius: 0;
+                }
+
+                .form-simple input[type="mail"] {
+                    margin-bottom: -1px;
+                    border-top-left-radius: 0;
+                    border-top-right-radius: 0;
+                    border-bottom-right-radius: 0;
+                    border-bottom-left-radius: 0;
+                }
+
+                .form-simple input[type="password"] {
+                    margin-bottom: 10px;
+                    border-top-left-radius: 0;
+                    border-top-right-radius: 0;
+                }
+
+                .help-block ul {
+                    margin: 0 !important;
+                    padding: 0 !important;
+                }
+
+                    .help-block ul li {
+                        list-style: none;
+                    }
+    </style>
+</body>
+</html>

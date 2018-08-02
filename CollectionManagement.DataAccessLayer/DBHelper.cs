@@ -17,14 +17,8 @@ namespace CollectionManagement.DataAccessLayer
 #else
         private static string defaultConnectionString = "";
 #endif
-        public static string DefaultConnectionString
-        {
-            get
-            {
-                return defaultConnectionString;
-            }
-        }
-        private SqlConnection _connection = null;
+       
+        private static SqlConnection _connection = null;
         public DBHelper()
         {
             _connection = new SqlConnection(defaultConnectionString);

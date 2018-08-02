@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CollectionManagement.BusinessEntityLayer;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -7,11 +8,25 @@ using System.Threading.Tasks;
 
 namespace CollectionManagement.DataAccessLayer
 {
-    public class UserDB : DBHelper
+    public class UserDB : DBHelper, IDisposable
     {
-        public void ValidateUser(string userName, string passwordString)
+       
+        #region IDisposable implementation 
+
+        /// <summary>
+        /// overide Dispose method
+        /// </summary>
+        public void Dispose()
         {
 
+        }
+
+        #endregion IDisposable implementation
+        public UserModel ValidateUser(string userName, string passwordString)
+        {
+            UserModel userModel = new UserModel();
+
+            return userModel;
         }
     }
 }

@@ -173,6 +173,7 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -190,6 +191,10 @@
     <ProjectReference Include="..\CollectionManagement.BusinessEntityLayer\CollectionManagement.BusinessEntityLayer.csproj">
       <Project>{68555931-bf71-4be2-af66-bb59e4b17469}</Project>
       <Name>CollectionManagement.BusinessEntityLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CollectionManagement.BusinessLayer\CollectionManagement.BusinessLayer.csproj">
+      <Project>{6F808719-3739-4CE0-9C07-D860B6BE1980}</Project>
+      <Name>CollectionManagement.BusinessLayer</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

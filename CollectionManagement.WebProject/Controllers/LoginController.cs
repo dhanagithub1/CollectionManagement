@@ -1,9 +1,12 @@
 ﻿using CollectionManagement.BusinessEntityLayer.ViewModel;
+using CollectionManagement.BusinessLayer.Interface;
+using CollectionManagement.BusinessLayer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using CollectionManagement.BusinessEntityLayer;
 
 namespace CollectionManagement.WebProject.Controllers
 {
@@ -20,7 +23,12 @@ namespace CollectionManagement.WebProject.Controllers
         {
             try
             {
-
+                using (IUser userBL = new UserBL())
+                {
+                    UserModel userModel = new UserModel();
+                    userModel = userBL.ValidateUser(loginViewModel.UserName, loginViewModel.Password);
+                    return RedirectToAction("Dashboard");
+                }
             }
             catch (Exception e)
             {
