@@ -15,7 +15,7 @@ namespace CollectionManagement.DataAccessLayer
             {
                 List<ServiceModel> serviceList = new List<ServiceModel>();
                 DBHelperModel dbHelperModel = new DBHelperModel();
-                dbHelperModel.StoredProcedureName = "dbo.GetAllService";
+                dbHelperModel.StoredProcedureName = "dbo.GetAllServices";
                 dbHelperModel.StoreProcedureParameters.Add(new KeyValuePair<string, string>("@DepartmentId", departmentId.ToString()));
 
                 var result = ExecuteProcedure(dbHelperModel);

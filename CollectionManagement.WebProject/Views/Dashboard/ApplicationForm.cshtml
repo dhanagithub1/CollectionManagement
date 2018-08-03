@@ -1,0 +1,123 @@
+﻿@model CollectionManagement.BusinessEntityLayer.ViewModel.CollectionTransactionViewModel
+
+@{
+    ViewBag.Title = "ApplicationForm";
+    int i = 1;
+}
+
+<h2>ApplicationForm</h2>
+<div class="content-body">
+    <!-- Basic form layout section start -->
+    <section id="basic-form-layouts">
+        <div class="row match-height">
+            <div class="col-md-9">
+                <div class="card">
+                    <div class="card-body collapse in">
+                        <div class="card-block">
+
+                            @using (Html.BeginForm("AddApplicationForm", "Dashboard", FormMethod.Post))
+                            {
+                                <div class="form-body">
+                                    <h4 class="form-section"><i class="icon-head"></i> Collection Details</h4>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="projectinput5">Department</label>
+                                                @Html.DropDownListFor(m => m.DepartmentId, new SelectList(Model.DepartmentModelList, "DepartmentId", "DepartmentNameEnglish"), "Select Department", new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(model => model.DepartmentId, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <table class="service-rows">
+                                        <thead>
+                                            <tr>
+                                                <th>Service</th>
+                                                <th>Rate</th>
+                                                <th>Quantity</th>
+                                                <th>Remarks</th>
+                                                <th>Delete?</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="row_1">
+                                                <td>
+                                                    @Html.DropDownList("ServiceId1", new SelectList(Model.ServiceModelList, "ServiceId", "ServiceNameEnglish"), "Select Service", new { @class = "form-control" })
+                                                </td>
+                                                <td> @Html.Editor("Rate1", new { htmlAttributes = new { @class = "form-control", @autocomplete = "off", @placeholder = "Rate" } })</td>
+                                                <td>@Html.Editor("Quantity1", new { htmlAttributes = new { @class = "form-control", @autocomplete = "off", @placeholder = "Quantity" } })</td>
+                                                <td>@Html.Editor("Remarks1", new { htmlAttributes = new { @class = "form-control", @autocomplete = "off", @placeholder = "Remarks" } })</td>
+                                                <td><button type="button" class="btn btn-warning mr-1" id="btn-removeRow1" onclick="return removeRow(this);"><i class="icon-delete"></i> Delete</button></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                    <br /> <br />
+                                    <div class="form-actions">
+                                        <button type="button" class="btn btn-blue mr-1" id="btn-addNewRow">
+                                            <i class="icon-box-add"></i> Add New
+                                        </button>
+                                    </div>
+                                    <hr />
+                                    <div class="form-actions">
+                                        <button type="button" class="btn btn-warning mr-1">
+                                            <i class="icon-cross2"></i> Cancel
+                                        </button>
+                                        <button type="submit" class="btn btn-primary">
+                                            <i class="icon-check2"></i> Save
+                                        </button>
+                                    </div>
+
+
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+@section Scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+    var i='@i';
+   
+    <script src="~/Scripts/CustomScripts/CollectionTransaction.js"></script>
+}
+
+<div class="row_dummy" style="display:none;">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="projectinput1">Service</label>
+                @Html.DropDownList("ServiceId" + i, new SelectList(Model.ServiceModelList, "ServiceId", "ServiceNameEnglish"), "Select Service", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.DepartmentId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="form-group">
+                <label for="projectinput2">Rate</label>
+                @Html.Editor("Rate" + i, new { htmlAttributes = new { @class = "form-control", @autocomplete = "off", @placeholder = "Rate" } })
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="form-group">
+                <label for="projectinput2">Quantity</label>
+                @Html.Editor("Quantity" + i, new { htmlAttributes = new { @class = "form-control", @autocomplete = "off", @placeholder = "Quantity" } })
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="form-group">
+                <label for="projectinput2">Remarks</label>
+                @Html.Editor("Remarks" + i, new { htmlAttributes = new { @class = "form-control", @autocomplete = "off", @placeholder = "Remarks" } })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <button type="button" class="btn btn-warning mr-1" id="btn-removeRow">
+                    <i class="icon-delete"></i> Delete
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

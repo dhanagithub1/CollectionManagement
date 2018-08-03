@@ -31,5 +31,7 @@ namespace CollectionManagement.BusinessEntityLayer.ViewModel
         public List<ServiceModel> ServiceModelList { get; set; }
         public List<DepartmentModel> DepartmentModelList { get; set; }
         public List<TransationServiceModel> TransactionServiceModelList { get; set; }
+        [Required(ErrorMessage = "This field is required.")]
+        public int DepartmentId { get; set; }
     }
 }
