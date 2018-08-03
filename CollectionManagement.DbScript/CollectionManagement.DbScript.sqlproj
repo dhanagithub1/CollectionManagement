@@ -61,6 +61,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="StoredProcedure\AuthenticateUser.sql" />
+    <None Include="StoredProcedure\GetAllServices.sql" />
+    <None Include="StoredProcedure\GetAllDepartments.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ProjectCollection.sql" />

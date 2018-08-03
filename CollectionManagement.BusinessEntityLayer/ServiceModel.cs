@@ -14,7 +14,7 @@ namespace CollectionManagement.BusinessEntityLayer
         public string ServiceNameMarathi { get; set; }
         public string FunctionCode { get; set; }
         public string ObjectCode { get; set; }
-        public string DepartmentId { get; set; }
+        public int DepartmentId { get; set; }
         public string Remarks { get; set; }
     }
 }

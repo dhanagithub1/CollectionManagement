@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace CollectionManagement.DataAccessLayer
 {
-    public class DBHelper
+    public class DBHelper : IDisposable
     {
 #if DEBUG
         private static string defaultConnectionString = ConfigurationManager.ConnectionStrings["DBConnection"].ConnectionString;
@@ -92,5 +92,18 @@ namespace CollectionManagement.DataAccessLayer
             }
 
         }
+
+        #region IDisposable implementation 
+
+        /// <summary>
+        /// overide Dispose method
+        /// </summary>
+        public void Dispose()
+        {
+            if (_connection != null)
+                _connection.Close();
+        }
+
+        #endregion IDisposable implementation
     }
 }

@@ -16,5 +16,17 @@ namespace CollectionManagement.WebProject.Controllers
             userModel = (UserModel)Session["UserModel"];
             return View();
         }
+
+        public ActionResult ApplicationForm()
+        {
+            try
+            {
+                return null;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
     }
 }

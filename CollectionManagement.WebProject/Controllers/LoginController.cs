@@ -17,7 +17,7 @@ namespace CollectionManagement.WebProject.Controllers
         {
             Session.Clear();
             Session.Abandon();
-            return View();
+            return View("Login");
         }
 
         [HttpPost]
@@ -38,7 +38,7 @@ namespace CollectionManagement.WebProject.Controllers
                     {
                         ModelState.AddModelError("", userModel.OperationMessage);
                     }
-                    return View("Index");
+                    return View("Login");
                 }
             }
             catch (Exception e)

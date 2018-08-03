@@ -8,20 +8,8 @@ using System.Threading.Tasks;
 
 namespace CollectionManagement.DataAccessLayer
 {
-    public class UserDB : DBHelper, IDisposable
-    {
-
-        #region IDisposable implementation 
-
-        /// <summary>
-        /// overide Dispose method
-        /// </summary>
-        public void Dispose()
-        {
-
-        }
-
-        #endregion IDisposable implementation
+    public class UserDB : DBHelper
+    {        
         public UserModel ValidateUser(string userName, string passwordString)
         {
             try
