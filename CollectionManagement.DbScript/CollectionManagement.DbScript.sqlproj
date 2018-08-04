@@ -63,6 +63,11 @@
     <None Include="StoredProcedure\AuthenticateUser.sql" />
     <None Include="StoredProcedure\GetAllServices.sql" />
     <None Include="StoredProcedure\GetAllDepartments.sql" />
+    <None Include="StoredProcedure\AddTransactionData.sql" />
+    <None Include="TransactionServiceList.sql" />
+    <None Include="AlterTable.sql" />
+    <None Include="StoredProcedure\GetTransactionData.sql" />
+    <None Include="StoredProcedure\GetTransactionServices.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ProjectCollection.sql" />

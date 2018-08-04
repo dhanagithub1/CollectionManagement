@@ -16,5 +16,8 @@ namespace CollectionManagement.BusinessEntityLayer
         public long UserId { get; set; }
         public int RoleId { get; set; }
         public string RoleName { get; set; }
+        public int Name { get; set; }
+        public string DepartmentName { get; set; }
+        public int DepartmentId { get; set; }
     }
 }

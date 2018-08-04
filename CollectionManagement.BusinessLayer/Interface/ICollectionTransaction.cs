@@ -1,4 +1,5 @@
 ﻿using CollectionManagement.BusinessEntityLayer;
+using CollectionManagement.BusinessEntityLayer.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,5 +12,7 @@ namespace CollectionManagement.BusinessLayer.Interface
     {
         List<ServiceModel> GetAllServices(int departmentId);
         List<DepartmentModel> GetAllDepartments();
+        OperationModel AddTransactionData(CollectionTransactionViewModel collectionTransactionViewModel);
+        CollectionTransactionViewModel GetCollectionTransactionDetails(string txnId);
     }
 }

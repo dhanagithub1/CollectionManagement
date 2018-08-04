@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,8 @@ namespace CollectionManagement.BusinessEntityLayer
         public List<KeyValuePair<string, string>> StoreProcedureParameters { get; set; }
 
         public string StoredProcedureName { get; set; }
+
+        public SqlParameter SqlParameter { get; set; }
 
         public DBHelperModel()
         {

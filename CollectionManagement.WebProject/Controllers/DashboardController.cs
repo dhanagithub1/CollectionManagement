@@ -19,6 +19,8 @@ namespace CollectionManagement.WebProject.Controllers
             userModel = (UserModel)Session["UserModel"];
             if (userModel.RoleId == 2)
             { return RedirectToAction("ApplicationForm"); }
+            if (userModel.RoleId == 3)
+            { return RedirectToAction("CollectionCenter"); }
             return View();
         }
 
@@ -50,6 +52,48 @@ namespace CollectionManagement.WebProject.Controllers
                     serviceModelList = collectionTransactionBL.GetAllServices(deptId);
                 }
                 return Json(serviceModelList, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        [HttpPost]
+        public ActionResult AddApplicationForm(CollectionTransactionViewModel collectionTransactionViewModel)
+        {
+            try
+            {
+                UserModel userModel = new UserModel();
+                userModel = (UserModel)Session["UserModel"];
+                collectionTransactionViewModel.CreatedBy = userModel.UserId;
+                using (ICollectionTransaction collectionTransactionBL = new CollectionTransactionBL())
+                {
+                    OperationModel operationModel = collectionTransactionBL.AddTransactionData(collectionTransactionViewModel);
+                    return Json(new { result = operationModel.OperationMessage }, JsonRequestBehavior.AllowGet);
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public ActionResult CollectionCenter()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult GetTransactionData(string txnid)
+        {
+            try
+            {
+                using (ICollectionTransaction collectionTransactionBL = new CollectionTransactionBL())
+                {
+                    CollectionTransactionViewModel collectionTransactionViewModel = collectionTransactionBL.GetCollectionTransactionDetails(txnid);
+                    return View("_TransactionData", collectionTransactionViewModel);
+                }
             }
             catch (Exception e)
             {

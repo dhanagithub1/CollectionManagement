@@ -22,5 +22,8 @@ namespace CollectionManagement.BusinessEntityLayer
         public string DDNumber { get; set; }
         public string BankName { get; set; }
         public string BankAddress { get; set; }
+        public string Remarks { get; set; }
+        public int DepartmentId { get; set; }
+        public string DepartmentName { get; set; }
     }
 }

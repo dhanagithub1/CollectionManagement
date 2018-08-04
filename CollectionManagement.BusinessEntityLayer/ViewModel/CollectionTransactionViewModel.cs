@@ -33,5 +33,8 @@ namespace CollectionManagement.BusinessEntityLayer.ViewModel
         public List<TransationServiceModel> TransactionServiceModelList { get; set; }
         [Required(ErrorMessage = "This field is required.")]
         public int DepartmentId { get; set; }
+        public long CreatedBy { get; set; }
+        public string Remarks { get; set; }
+        public string DepartmentName { get; set; }
     }
 }

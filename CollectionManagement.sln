@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollectionManagement.WebPro
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "CollectionManagement.DbScript", "CollectionManagement.DbScript\CollectionManagement.DbScript.sqlproj", "{3487BC42-91F6-4F5F-9B9B-690E6F51B877}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollectionManagement.Common", "CollectionManagement.Common\CollectionManagement.Common.csproj", "{54F50F35-79A2-43A7-9587-4136CCBB8D0A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,10 @@ Global
 		{3487BC42-91F6-4F5F-9B9B-690E6F51B877}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3487BC42-91F6-4F5F-9B9B-690E6F51B877}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3487BC42-91F6-4F5F-9B9B-690E6F51B877}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{54F50F35-79A2-43A7-9587-4136CCBB8D0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54F50F35-79A2-43A7-9587-4136CCBB8D0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54F50F35-79A2-43A7-9587-4136CCBB8D0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54F50F35-79A2-43A7-9587-4136CCBB8D0A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

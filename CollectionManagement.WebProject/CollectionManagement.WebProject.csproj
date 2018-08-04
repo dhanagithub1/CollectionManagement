@@ -1523,6 +1523,7 @@
     <Content Include="RobustTheme\assets\scss\variables\app-variables.scss" />
     <Content Include="RobustTheme\assets\scss\variables\variables.scss" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\CustomScripts\CollectionCenter.js" />
     <Content Include="Scripts\CustomScripts\CollectionTransaction.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -1554,6 +1555,8 @@
     <Content Include="Views\Dashboard\Index.cshtml" />
     <Content Include="Views\Dashboard\ApplicationForm.cshtml" />
     <Content Include="Views\Shared\_ThemeLayout.cshtml" />
+    <Content Include="Views\Dashboard\CollectionCenter.cshtml" />
+    <Content Include="Views\Dashboard\_TransactionData.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

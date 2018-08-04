@@ -14,7 +14,7 @@ namespace CollectionManagement.BusinessEntityLayer
 
         //AuditFields
         public DateTime CreatedOn { get; set; }
-        public int CreatedBy { get; set; }
+        public long CreatedBy { get; set; }
         public int IsActive { get; set; }
     }
 }

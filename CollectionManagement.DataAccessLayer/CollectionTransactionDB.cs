@@ -1,9 +1,12 @@
 ﻿using CollectionManagement.BusinessEntityLayer;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static CollectionManagement.Common.EnumModel;
 
 namespace CollectionManagement.DataAccessLayer
 {
@@ -49,7 +52,7 @@ namespace CollectionManagement.DataAccessLayer
             {
                 List<DepartmentModel> departmentList = new List<DepartmentModel>();
                 DBHelperModel dbHelperModel = new DBHelperModel();
-                dbHelperModel.StoredProcedureName = "dbo.GetAllDepartments";         
+                dbHelperModel.StoredProcedureName = "dbo.GetAllDepartments";
 
                 var result = ExecuteProcedure(dbHelperModel);
                 if (result.Rows.Count > 0)
@@ -58,14 +61,123 @@ namespace CollectionManagement.DataAccessLayer
                     {
                         DepartmentModel departmentModel = new DepartmentModel();
                         departmentModel.DepartmentNameEnglish = Convert.ToString(result.Rows[i]["DepartmentNameEnglish"]);
-                        departmentModel.DepartmentNameMarathi = Convert.ToString(result.Rows[i]["DepartmentNameMarathi"]);                       
-                        departmentModel.DepartmentId = Convert.ToInt16(result.Rows[i]["DepartmentId"]);                        
+                        departmentModel.DepartmentNameMarathi = Convert.ToString(result.Rows[i]["DepartmentNameMarathi"]);
+                        departmentModel.DepartmentId = Convert.ToInt16(result.Rows[i]["DepartmentId"]);
                         departmentModel.IsActive = Convert.ToInt16(result.Rows[i]["IsActive"]);
                         departmentModel.OperationStatus = 1;
                         departmentList.Add(departmentModel);
                     }
                 }
                 return departmentList;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public OperationModel AddTransactionData(CollectionTransactionModel collectionTransactionModel, DataTable dataTable)
+        {
+            try
+            {
+                OperationModel operationModel = new OperationModel();
+                DBHelperModel dbHelperModel = new DBHelperModel();
+                dbHelperModel.StoredProcedureName = "dbo.AddTransactionData";
+                dbHelperModel.StoreProcedureParameters.Add(new KeyValuePair<string, string>("@DepartmentId", collectionTransactionModel.DepartmentId.ToString()));
+                dbHelperModel.StoreProcedureParameters.Add(new KeyValuePair<string, string>("@TransactionId", collectionTransactionModel.TransactionId));
+                dbHelperModel.StoreProcedureParameters.Add(new KeyValuePair<string, string>("@TransactionStatus", collectionTransactionModel.TransactionStatus.ToString()));
+                dbHelperModel.StoreProcedureParameters.Add(new KeyValuePair<string, string>("@ApplicantName", collectionTransactionModel.ApplicantName));
+                dbHelperModel.StoreProcedureParameters.Add(new KeyValuePair<string, string>("@MobileNumber", collectionTransactionModel.MobileNumber));
+                dbHelperModel.StoreProcedureParameters.Add(new KeyValuePair<string, string>("@Address", collectionTransactionModel.Address));
+                dbHelperModel.StoreProcedureParameters.Add(new KeyValuePair<string, string>("@AadhaarNumber", collectionTransactionModel.AadhaarNumber));
+                dbHelperModel.StoreProcedureParameters.Add(new KeyValuePair<string, string>("@PanNumber", collectionTransactionModel.PanNumber));
+                dbHelperModel.StoreProcedureParameters.Add(new KeyValuePair<string, string>("@ApplicantGSTNumber", collectionTransactionModel.ApplicantGSTNumber));
+                dbHelperModel.StoreProcedureParameters.Add(new KeyValuePair<string, string>("@TotalAmount", collectionTransactionModel.TotalAmount.ToString()));
+                //dbHelperModel.StoreProcedureParameters.Add(new KeyValuePair<string, string>("@CreatedOn", DateTime.Now.ToString()));
+                dbHelperModel.StoreProcedureParameters.Add(new KeyValuePair<string, string>("@CreatedBy", collectionTransactionModel.CreatedBy.ToString()));
+                dbHelperModel.StoreProcedureParameters.Add(new KeyValuePair<string, string>("@Remarks", collectionTransactionModel.Remarks));
+
+                SqlParameter parameter = new SqlParameter();
+                parameter.ParameterName = "@TransactionList";
+                parameter.SqlDbType = System.Data.SqlDbType.Structured;
+                parameter.Value = dataTable;
+                dbHelperModel.SqlParameter = parameter;
+
+                var result = ExecuteNonQuery(dbHelperModel);
+                if (result != 0)
+                {
+                    operationModel.OperationStatus = (int)OperationStatus.Success;
+                    operationModel.OperationMessage = "Success";
+                }
+                else
+                {
+                    operationModel.OperationStatus = (int)OperationStatus.Failed;
+                    operationModel.OperationMessage = "ERROR";
+                }
+                return operationModel;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public CollectionTransactionModel GetTransactionData(string txnId)
+        {
+            try
+            {
+                CollectionTransactionModel collectionTransactionModel = new CollectionTransactionModel();
+                DBHelperModel dbHelperModel = new DBHelperModel();
+                dbHelperModel.StoredProcedureName = "dbo.GetTransactionData";
+                dbHelperModel.StoreProcedureParameters.Add(new KeyValuePair<string, string>("@TransactionId", txnId));
+                var result = ExecuteProcedure(dbHelperModel);
+
+                collectionTransactionModel.TransactionId = Convert.ToString(result.Rows[0]["TransactionId"]);
+                collectionTransactionModel.CollectionTransactionId = Convert.ToInt16(result.Rows[0]["CollectionTransactionId"]);
+                collectionTransactionModel.TransactionStatus = Convert.ToInt16(result.Rows[0]["TransactionStatus"]);
+                collectionTransactionModel.ApplicantName = Convert.ToString(result.Rows[0]["ApplicantName"]);
+                collectionTransactionModel.MobileNumber = Convert.ToString(result.Rows[0]["MobileNumber"]);
+                collectionTransactionModel.Address = Convert.ToString(result.Rows[0]["Address"]);
+                collectionTransactionModel.ApplicantGSTNumber = Convert.ToString(result.Rows[0]["ApplicantGSTNumber"]);
+                collectionTransactionModel.TotalAmount = Convert.ToDecimal(result.Rows[0]["TotalAmount"]);
+                collectionTransactionModel.Remarks = Convert.ToString(result.Rows[0]["Remarks"]);
+                collectionTransactionModel.DepartmentName = Convert.ToString(result.Rows[0]["DepartmentName"]);
+                collectionTransactionModel.OperationStatus = (int)OperationStatus.Success;
+
+                return collectionTransactionModel;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public List<TransationServiceModel> GetTransationServices(int collectionTxnId)
+        {
+            try
+            {
+                List<TransationServiceModel> transationServiceModels = new List<TransationServiceModel>();
+                DBHelperModel dbHelperModel = new DBHelperModel();
+                dbHelperModel.StoredProcedureName = "dbo.GetTransactionServices";
+                dbHelperModel.StoreProcedureParameters.Add(new KeyValuePair<string, string>("@TransactionId", collectionTxnId.ToString()));
+                var result = ExecuteProcedure(dbHelperModel);
+
+                if (result.Rows.Count > 0)
+                {
+                    for (int i = 0; i < result.Rows.Count; i++)
+                    {
+                        TransationServiceModel transationServiceModel = new TransationServiceModel();
+                        transationServiceModel.ServiceId = Convert.ToInt16(result.Rows[i]["ServiceId"]);
+                        transationServiceModel.TransactionServiceId = Convert.ToInt16(result.Rows[i]["TransactionServiceId"]);
+                        transationServiceModel.Rate = Convert.ToDecimal(result.Rows[i]["Rate"]);
+                        transationServiceModel.Quantity = Convert.ToInt16(result.Rows[i]["Quantity"]);
+                        transationServiceModel.ServiceName = Convert.ToString(result.Rows[i]["ServiceName"]);
+                        transationServiceModel.Remarks = Convert.ToString(result.Rows[i]["Remarks"]);
+                        transationServiceModel.OperationStatus = (int)OperationStatus.Success;
+                        transationServiceModels.Add(transationServiceModel);
+                    }
+                }
+                return transationServiceModels;
             }
             catch (Exception e)
             {

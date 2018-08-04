@@ -1,0 +1,185 @@
+﻿@model CollectionManagement.BusinessEntityLayer.ViewModel.CollectionTransactionViewModel
+@using CollectionManagement.Common
+@{
+    Layout = null;
+}
+<div class="card-body collapse in">
+    <div class="card-block">
+        <div class="form-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Department</label>
+                        @Html.DisplayFor(model => model.DepartmentName)
+                    </div>
+                </div>
+            </div>
+            <table class="service-rows">
+                <thead>
+                    <tr>
+                        <th>Service</th>
+                        <th>Rate</th>
+                        <th>Quantity</th>
+                        <th>Remarks</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.TransactionServiceModelList)
+                    {
+                        <tr class="row_1">
+                            <td>@item.ServiceName</td>
+                            <td>@item.Rate</td>
+                            <td>@item.Quantity</td>
+                            <td>@item.Remarks</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Transaction Id</label>
+                        @Html.DisplayFor(model => model.TransactionId)
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Transaction Status</label>
+                        @(((EnumModel.TransactionStatus)Model.TransactionStatus).ToString())
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Applicant Name</label>
+                        @Html.DisplayFor(model => model.ApplicantName)
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Mobile Number</label>
+                        @Html.DisplayFor(model => model.MobileNumber)
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Address</label>
+                        @Html.DisplayFor(model => model.Address)
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Applicant GST Number</label>
+                        @Html.DisplayFor(model => model.ApplicantGSTNumber)
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="projectinput5">Total Amount</label>
+                        @Html.DisplayFor(model => model.TotalAmount)
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="projectinput5">Remarks</label>
+                        @Html.DisplayFor(model => model.Remarks)
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="projectinput5">Mode of Payment</label>
+                        <select id="modeOfPayment" class="form-control" onchange="return changeMOP(this);">
+                            <option value="0">select</option>
+                            <option value="1">Cash</option>
+                            <option value="2">Cheque</option>
+                            <option value="3">DD</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6" style="display:none" id="cheque">
+                    <div class="form-group">
+                        <label for="projectinput5">Cheque Number</label>
+                        @Html.Editor("ChequeNumber", new { htmlAttributes = new { @class = "form-control rateTxt", @autocomplete = "off", @placeholder = "Cheque Number" } })
+                    </div>
+                </div>
+                <div class="col-md-6" style="display:none" id="dd">
+                    <div class="form-group">
+                        <label for="projectinput5">DD Number</label>
+                        @Html.Editor("DDNumber", new { htmlAttributes = new { @class = "form-control rateTxt", @autocomplete = "off", @placeholder = "DD Number" } })
+                    </div>
+                </div>
+                <div class="col-md-6" style="display:none" id="cash">
+                    <table class="service-rows">
+                        <thead>
+                            <tr><td colspan="2">Denominations</td></tr>
+                            <tr>
+                                <th>Amount in Rs.</th>
+                                <th>Number</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    2000
+                                </td>
+                                <td>
+                                    @Html.Editor("Amount2k", new { htmlAttributes = new { @class = "form-control rateTxt", @autocomplete = "off", @placeholder = "Number" } })
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    500
+                                </td>
+                                <td>
+                                    @Html.Editor("Amount5h", new { htmlAttributes = new { @class = "form-control rateTxt", @autocomplete = "off", @placeholder = "Number" } })
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    200
+                                </td>
+                                <td>
+                                    @Html.Editor("Amount2h", new { htmlAttributes = new { @class = "form-control rateTxt", @autocomplete = "off", @placeholder = "Number" } })
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    100
+                                </td>
+                                <td>
+                                    @Html.Editor("Amount1h", new { htmlAttributes = new { @class = "form-control rateTxt", @autocomplete = "off", @placeholder = "Number" } })
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="form-actions">
+                <button type="button" class="btn btn-blue mr-1" id="btn-saveMoP" onclick="return saveMOP();">
+                    <i class="icon-box-add"></i> Save
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    label {
+        font-weight: bold;
+    }
+
+    table, td, th {
+        border: 1px solid #e1e1e1;
+    }
+
+    td, th {
+        padding: 10px;
+    }
+</style>

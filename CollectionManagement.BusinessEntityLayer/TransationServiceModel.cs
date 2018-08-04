@@ -14,6 +14,6 @@ namespace CollectionManagement.BusinessEntityLayer
         public decimal Rate { get; set; }
         public int Quantity { get; set; }
         public string Remarks { get; set; }
-
+        public string ServiceName { get; set; }
     }
 }

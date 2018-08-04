@@ -51,6 +51,10 @@
       <Project>{68555931-BF71-4BE2-AF66-BB59E4B17469}</Project>
       <Name>CollectionManagement.BusinessEntityLayer</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CollectionManagement.Common\CollectionManagement.Common.csproj">
+      <Project>{54F50F35-79A2-43A7-9587-4136CCBB8D0A}</Project>
+      <Name>CollectionManagement.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

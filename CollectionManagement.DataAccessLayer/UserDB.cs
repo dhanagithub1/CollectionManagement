@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static CollectionManagement.Common.EnumModel;
 
 namespace CollectionManagement.DataAccessLayer
 {
@@ -32,11 +33,13 @@ namespace CollectionManagement.DataAccessLayer
                     //userModel.CreatedBy = Convert.ToInt16(result["CreatedBy"]);
                     userModel.IsActive = Convert.ToInt16(result.Rows[0]["IsActive"]);
                     userModel.RoleName = Convert.ToString(result.Rows[0]["RoleName"]);
-                    userModel.OperationStatus = 1;
+                    userModel.DepartmentName = Convert.ToString(result.Rows[0]["DepartmentName"]);
+                    userModel.DepartmentId = Convert.ToInt16(result.Rows[0]["DepartmentId"]);
+                    userModel.OperationStatus = (int)OperationStatus.Success;
                 }
                 else
                 {
-                    userModel.OperationStatus = 2;
+                    userModel.OperationStatus = (int)OperationStatus.Failed ;
                     userModel.OperationMessage = "No valid user found.";
                 }
                 return userModel;

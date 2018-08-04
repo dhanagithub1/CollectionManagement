@@ -93,6 +93,40 @@ namespace CollectionManagement.DataAccessLayer
 
         }
 
+        public int ExecuteNonQuery(DBHelperModel dbHelperModel)
+        {
+            try
+            {
+                using (SqlCommand command = new SqlCommand(dbHelperModel.StoredProcedureName, _connection))
+                {
+                    _connection.Open();
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.CommandTimeout = 600;
+
+                    if (dbHelperModel.StoreProcedureParameters != null && dbHelperModel.StoreProcedureParameters.Count() > 0)
+                    {
+                        foreach (var parameterItem in dbHelperModel.StoreProcedureParameters)
+                        {
+                            command.Parameters.Add(new SqlParameter { ParameterName = parameterItem.Key, Value = parameterItem.Value });
+                        }
+                    }
+                    command.Parameters.Add(dbHelperModel.SqlParameter);
+                    var result = command.ExecuteNonQuery();
+
+                    return result;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (_connection != null)
+                    _connection.Close();
+            }
+        }
+
         #region IDisposable implementation 
 
         /// <summary>

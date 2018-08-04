@@ -1,14 +1,6 @@
-﻿-- ================================================
--- Template generated from Template Explorer using:
--- Create Procedure (New Menu).SQL
---
--- Use the Specify Values for Template Parameters 
--- command (Ctrl-Shift-M) to fill in the parameter 
--- values below.
---
--- This block of comments will not be included in
--- the definition of the procedure.
--- ================================================
+﻿USE [CollectionManagement]
+GO
+/****** Object:  StoredProcedure [dbo].[AuthenticateUser]    Script Date: 8/5/2018 12:24:20 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -18,7 +10,7 @@ GO
 -- Create date: 2018-08-02
 -- Description:	Authenticate user after login
 -- =============================================
-Alter PROCEDURE [dbo].[AuthenticateUser] 
+ALTER PROCEDURE [dbo].[AuthenticateUser] 
 	-- Add the parameters for the stored procedure here
 	@Username varchar(20) = NULL, 
 	@PasswordString varchar(500) = NULL
@@ -39,11 +31,14 @@ BEGIN
 				,U.CreatedBy
 				,U.IsActive
 				,R.RoleName
+				,D.DepartmentNameEnglish as DepartmentName
+				,U.[DepartmentId]
 	FROM		[dbo].[User] U
 	INNER JOIN	[dbo].[Role] R
 	ON			U.RoleId		=R.RoleId
+	LEFT JOIN	[dbo].[Department] D
+	ON			U.[DepartmentId]		=D.[DepartmentId]
 	WHERE		Username		=@Username
 	AND			[Password]		=@PasswordString
 
 END
-GO

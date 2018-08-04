@@ -5,17 +5,19 @@
     int i = 1;
     Layout = "~/Views/Shared/_ThemeLayout.cshtml";
 }
-
 <div class="content-body">
     <!-- Basic form layout section start -->
     <section id="basic-form-layouts">
         <div class="row match-height">
             <div class="col-md-9">
+                <div class="alert alert-info mb-2" role="alert" style="display:none">
+                    <strong><span id="customMsg"></span></strong>
+                </div>
                 <div class="card">
                     <div class="card-body collapse in">
                         <div class="card-block">
 
-                            @using (Html.BeginForm("AddApplicationForm", "Dashboard", FormMethod.Post))
+                            @using (Html.BeginForm("AddApplicationForm", "Dashboard", FormMethod.Post, new { id = "applicationForm", enctype = "multipart/form-data" }))
                             {
                                 <div class="form-body">
                                     <h4 class="form-section"><i class="icon-head"></i> Collection Details</h4>
@@ -42,33 +44,79 @@
                                         <tbody>
                                             <tr class="row_1">
                                                 <td>
-                                                    @Html.DropDownList("ServiceId1", new SelectList(Model.ServiceModelList, "ServiceId", "ServiceNameEnglish"), "Select Service", new { @class = "form-control" })
+                                                    @Html.DropDownList("ServiceId1", new SelectList(Model.ServiceModelList, "ServiceId", "ServiceNameEnglish"), "Select Service", new { @class = "form-control serviceDD" })
                                                 </td>
-                                                <td> @Html.Editor("Rate1", new { htmlAttributes = new { @class = "form-control", @autocomplete = "off", @placeholder = "Rate" } })</td>
-                                                <td>@Html.Editor("Quantity1", new { htmlAttributes = new { @class = "form-control", @autocomplete = "off", @placeholder = "Quantity" } })</td>
-                                                <td>@Html.Editor("Remarks1", new { htmlAttributes = new { @class = "form-control", @autocomplete = "off", @placeholder = "Remarks" } })</td>
+                                                <td> @Html.Editor("Rate1", new { htmlAttributes = new { @class = "form-control rateTxt", @autocomplete = "off", @placeholder = "Rate" } })</td>
+                                                <td>@Html.Editor("Quantity1", new { htmlAttributes = new { @class = "form-control quantityTxt", @autocomplete = "off", @placeholder = "Quantity" } })</td>
+                                                <td>@Html.Editor("Remarks1", new { htmlAttributes = new { @class = "form-control remarksTxt", @autocomplete = "off", @placeholder = "Remarks" } })</td>
                                                 <td><button type="button" class="btn btn-warning mr-1" id="btn-removeRow1" onclick="return removeRow(this);"><i class="icon-delete"></i> Delete</button></td>
                                             </tr>
                                         </tbody>
                                     </table>
 
-                                    <br /> <br />
                                     <div class="form-actions">
                                         <button type="button" class="btn btn-blue mr-1" id="btn-addNewRow">
                                             <i class="icon-box-add"></i> Add New
                                         </button>
                                     </div>
-                                    <hr />
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="projectinput5">Applicant Name</label>
+                                                @Html.EditorFor(m => m.ApplicantName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Applicant Name" } })
+                                                @Html.ValidationMessageFor(model => model.ApplicantName, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="projectinput5">Mobile Number</label>
+                                                @Html.EditorFor(m => m.MobileNumber, new { htmlAttributes = new { @class = "form-control", @placeholder = "Mobile Number", @maxlength=10 } })
+                                                @Html.ValidationMessageFor(model => model.MobileNumber, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="projectinput5">Address</label>
+                                                @Html.EditorFor(m => m.Address, new { htmlAttributes = new { @class = "form-control", @placeholder = "Address" } })
+                                                @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="projectinput5">Applicant GST Number</label>
+                                                @Html.EditorFor(m => m.ApplicantGSTNumber, new { htmlAttributes = new { @class = "form-control", @placeholder = "Applicant GST Number" } })
+                                                @Html.ValidationMessageFor(model => model.MobileNumber, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="projectinput5">TotalAmount</label>
+                                                @Html.EditorFor(m => m.TotalAmount, new { htmlAttributes = new { @class = "form-control", @placeholder = "Total Amount", @readonly = "readonly" } })
+                                                @Html.ValidationMessageFor(model => model.TotalAmount, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="projectinput5">Remarks</label>
+                                                @Html.EditorFor(m => m.Remarks, new { htmlAttributes = new { @class = "form-control", @placeholder = "Remarks" } })
+                                                @Html.ValidationMessageFor(model => model.Remarks, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+
                                     <div class="form-actions">
-                                        <button type="button" class="btn btn-warning mr-1">
+                                        <button type="button" class="btn btn-warning mr-1" id="btn-cancelForm">
                                             <i class="icon-cross2"></i> Cancel
                                         </button>
-                                        <button type="submit" class="btn btn-primary">
+                                        <button type="button" class="btn btn-primary" id="btn-SaveForm">
                                             <i class="icon-check2"></i> Save
                                         </button>
                                     </div>
-
-
                                 </div>
                             }
                         </div>
@@ -79,8 +127,8 @@
     </section>
 </div>
 @section Scripts{
+
     @Scripts.Render("~/bundles/jqueryval")
-   
     <script src="~/Scripts/CustomScripts/CollectionTransaction.js"></script>
 }
 
