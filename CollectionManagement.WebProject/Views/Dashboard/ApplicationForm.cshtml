@@ -1,11 +1,11 @@
 ﻿@model CollectionManagement.BusinessEntityLayer.ViewModel.CollectionTransactionViewModel
 
 @{
-    ViewBag.Title = "ApplicationForm";
+    ViewBag.Title = "Application Form";
     int i = 1;
+    Layout = "~/Views/Shared/_ThemeLayout.cshtml";
 }
 
-<h2>ApplicationForm</h2>
 <div class="content-body">
     <!-- Basic form layout section start -->
     <section id="basic-form-layouts">
@@ -80,44 +80,7 @@
 </div>
 @section Scripts{
     @Scripts.Render("~/bundles/jqueryval")
-    var i='@i';
    
     <script src="~/Scripts/CustomScripts/CollectionTransaction.js"></script>
 }
 
-<div class="row_dummy" style="display:none;">
-    <div class="row">
-        <div class="col-md-3">
-            <div class="form-group">
-                <label for="projectinput1">Service</label>
-                @Html.DropDownList("ServiceId" + i, new SelectList(Model.ServiceModelList, "ServiceId", "ServiceNameEnglish"), "Select Service", new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.DepartmentId, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        <div class="col-md-2">
-            <div class="form-group">
-                <label for="projectinput2">Rate</label>
-                @Html.Editor("Rate" + i, new { htmlAttributes = new { @class = "form-control", @autocomplete = "off", @placeholder = "Rate" } })
-            </div>
-        </div>
-        <div class="col-md-2">
-            <div class="form-group">
-                <label for="projectinput2">Quantity</label>
-                @Html.Editor("Quantity" + i, new { htmlAttributes = new { @class = "form-control", @autocomplete = "off", @placeholder = "Quantity" } })
-            </div>
-        </div>
-        <div class="col-md-2">
-            <div class="form-group">
-                <label for="projectinput2">Remarks</label>
-                @Html.Editor("Remarks" + i, new { htmlAttributes = new { @class = "form-control", @autocomplete = "off", @placeholder = "Remarks" } })
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="form-group">
-                <button type="button" class="btn btn-warning mr-1" id="btn-removeRow">
-                    <i class="icon-delete"></i> Delete
-                </button>
-            </div>
-        </div>
-    </div>
-</div>

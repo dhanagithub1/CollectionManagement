@@ -1553,6 +1553,7 @@
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\Dashboard\Index.cshtml" />
     <Content Include="Views\Dashboard\ApplicationForm.cshtml" />
+    <Content Include="Views\Shared\_ThemeLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
