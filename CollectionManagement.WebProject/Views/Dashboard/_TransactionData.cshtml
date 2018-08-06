@@ -20,6 +20,7 @@
                         <th>Service</th>
                         <th>Rate</th>
                         <th>Quantity</th>
+                        <th>Amount</th>
                         <th>Remarks</th>
                     </tr>
                 </thead>
@@ -30,6 +31,7 @@
                             <td>@item.ServiceName</td>
                             <td>@item.Rate</td>
                             <td>@item.Quantity</td>
+                            <td>@(item.Rate * item.Quantity)</td>
                             <td>@item.Remarks</td>
                         </tr>
                     }
@@ -103,58 +105,74 @@
                         </select>
                     </div>
                 </div>
-                <div class="col-md-6" style="display:none" id="cheque">
+                <div class="col-md-6 cheque" style="display:none">
                     <div class="form-group">
                         <label for="projectinput5">Cheque Number</label>
                         @Html.Editor("ChequeNumber", new { htmlAttributes = new { @class = "form-control rateTxt", @autocomplete = "off", @placeholder = "Cheque Number" } })
                     </div>
                 </div>
-                <div class="col-md-6" style="display:none" id="dd">
+                <div class="col-md-6 dd" style="display:none">
                     <div class="form-group">
                         <label for="projectinput5">DD Number</label>
                         @Html.Editor("DDNumber", new { htmlAttributes = new { @class = "form-control rateTxt", @autocomplete = "off", @placeholder = "DD Number" } })
+                    </div>
+                </div>                
+            </div>
+            <div class="row">
+                <div class="col-md-6 cheque" style="display:none">
+                    <div class="form-group">
+                        <label for="projectinput5">Bank Name</label>
+                        @Html.Editor("BankNameC", new { htmlAttributes = new { @class = "form-control bankName", @autocomplete = "off", @placeholder = "Bank Name" } })
+                    </div>
+                </div>
+                <div class="col-md-6 cheque" style="display:none">
+                    <div class="form-group">
+                        <label for="projectinput5">Bank Address</label>
+                        @Html.Editor("BankAddressC", new { htmlAttributes = new { @class = "form-control bankAddress", @autocomplete = "off", @placeholder = "Bank Address" } })
+                    </div>
+                </div>
+                <div class="col-md-6 dd" style="display:none">
+                    <div class="form-group">
+                        <label for="projectinput5">Bank Name</label>
+                        @Html.Editor("BankNameD", new { htmlAttributes = new { @class = "form-control bankName", @autocomplete = "off", @placeholder = "Bank Name" } })
+                    </div>
+                </div>
+                <div class="col-md-6 dd" style="display:none">
+                    <div class="form-group">
+                        <label for="projectinput5">Bank Address</label>
+                        @Html.Editor("BankAddressD", new { htmlAttributes = new { @class = "form-control bankAddress", @autocomplete = "off", @placeholder = "Bank Address" } })
                     </div>
                 </div>
                 <div class="col-md-6" style="display:none" id="cash">
                     <table class="service-rows">
                         <thead>
-                            <tr><td colspan="2">Denominations</td></tr>
+                            <tr><td colspan="6">Denominations</td></tr>
                             <tr>
                                 <th>Amount in Rs.</th>
-                                <th>Number</th>
+                                <th>2000</th>
+                                <th>500</th>
+                                <th>200</th>
+                                <th>100</th>
+                                <th>50</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>
-                                    2000
-                                </td>
+                                <th>Number</th>
                                 <td>
                                     @Html.Editor("Amount2k", new { htmlAttributes = new { @class = "form-control rateTxt", @autocomplete = "off", @placeholder = "Number" } })
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    500
                                 </td>
                                 <td>
                                     @Html.Editor("Amount5h", new { htmlAttributes = new { @class = "form-control rateTxt", @autocomplete = "off", @placeholder = "Number" } })
                                 </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    200
-                                </td>
                                 <td>
                                     @Html.Editor("Amount2h", new { htmlAttributes = new { @class = "form-control rateTxt", @autocomplete = "off", @placeholder = "Number" } })
                                 </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    100
-                                </td>
                                 <td>
                                     @Html.Editor("Amount1h", new { htmlAttributes = new { @class = "form-control rateTxt", @autocomplete = "off", @placeholder = "Number" } })
+                                </td>
+                                <td>
+                                    @Html.Editor("Amount50", new { htmlAttributes = new { @class = "form-control rateTxt", @autocomplete = "off", @placeholder = "Number" } })
                                 </td>
                             </tr>
                         </tbody>

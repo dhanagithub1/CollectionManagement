@@ -29,19 +29,19 @@ $('#btn-GetData').click(function () {
 function changeMOP(obj) {
     var val = $(obj).val();
     if (val == 1) {
-        $('#cheque').hide();
+        $('.cheque').hide();
         $('#cash').show();
-        $('#dd').hide();
+        $('.dd').hide();
     }
     if (val == 2) {
-        $('#cheque').show();
+        $('.cheque').show();
         $('#cash').hide();
-        $('#dd').hide();
+        $('.dd').hide();
     }
     if (val == 3) {
-        $('#cheque').hide();
+        $('.cheque').hide();
         $('#cash').hide();
-        $('#dd').show();
+        $('.dd').show();
     }
 }
 

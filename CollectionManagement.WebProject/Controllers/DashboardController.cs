@@ -100,5 +100,22 @@ namespace CollectionManagement.WebProject.Controllers
                 throw e;
             }
         }
+
+        public ActionResult GetServiceDetailsById(int serviceId)
+        {
+            try
+            {
+                ServiceModel serviceModel = new ServiceModel();
+                using (ICollectionTransaction collectionTransactionBL = new CollectionTransactionBL())
+                {
+                    serviceModel = collectionTransactionBL.GetServicebyId(serviceId);
+                }
+                return Json(serviceModel.ObjectCode, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
     }
 }

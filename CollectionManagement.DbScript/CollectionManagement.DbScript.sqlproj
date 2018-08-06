@@ -69,6 +69,7 @@
     <None Include="StoredProcedure\GetTransactionData.sql" />
     <None Include="StoredProcedure\GetTransactionServices.sql" />
     <None Include="InsertDataScript.sql" />
+    <None Include="StoredProcedure\GetServicebyId.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ProjectCollection.sql" />

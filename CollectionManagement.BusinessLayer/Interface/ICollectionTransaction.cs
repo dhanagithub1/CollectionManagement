@@ -8,11 +8,12 @@ using System.Threading.Tasks;
 
 namespace CollectionManagement.BusinessLayer.Interface
 {
-    public interface ICollectionTransaction :IDisposable
+    public interface ICollectionTransaction : IDisposable
     {
         List<ServiceModel> GetAllServices(int departmentId);
         List<DepartmentModel> GetAllDepartments();
         OperationModel AddTransactionData(CollectionTransactionViewModel collectionTransactionViewModel);
         CollectionTransactionViewModel GetCollectionTransactionDetails(string txnId);
+        ServiceModel GetServicebyId(int serviceId);
     }
 }

@@ -118,7 +118,7 @@ namespace CollectionManagement.BusinessLayer
                 using (CollectionTransactionDB collectionTransactionDB = new CollectionTransactionDB())
                 {
                     collectionTransactionModel = collectionTransactionDB.GetTransactionData(txnId);
-                    collectionTransactionViewModel.TransactionServiceModelList= collectionTransactionDB.GetTransationServices(collectionTransactionModel.CollectionTransactionId);
+                    collectionTransactionViewModel.TransactionServiceModelList = collectionTransactionDB.GetTransationServices(collectionTransactionModel.CollectionTransactionId);
                     collectionTransactionViewModel.ApplicantName = collectionTransactionModel.ApplicantName;
                     collectionTransactionViewModel.MobileNumber = collectionTransactionModel.MobileNumber;
                     collectionTransactionViewModel.Address = collectionTransactionModel.Address;
@@ -133,6 +133,23 @@ namespace CollectionManagement.BusinessLayer
                     collectionTransactionViewModel.DepartmentName = collectionTransactionModel.DepartmentName;
                 }
                 return collectionTransactionViewModel;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public ServiceModel GetServicebyId(int serviceId)
+        {
+            try
+            {
+                ServiceModel serviceModel = new ServiceModel();
+                using (CollectionTransactionDB collectionTransactionDB = new CollectionTransactionDB())
+                {
+                    serviceModel = collectionTransactionDB.GetServicebyId(serviceId);
+                }
+                return serviceModel;
             }
             catch (Exception e)
             {

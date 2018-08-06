@@ -19,6 +19,7 @@
 
                             @using (Html.BeginForm("AddApplicationForm", "Dashboard", FormMethod.Post, new { id = "applicationForm", enctype = "multipart/form-data" }))
                             {
+                                <span class="text-danger" id="validationMsg"></span>
                                 <div class="form-body">
                                     <h4 class="form-section"><i class="icon-head"></i> Collection Details</h4>
                                     <div class="row">
@@ -35,8 +36,10 @@
                                         <thead>
                                             <tr>
                                                 <th>Service</th>
+                                                <th>Object Code</th>
                                                 <th>Rate</th>
                                                 <th>Quantity</th>
+                                                <th>Amount</th>
                                                 <th>Remarks</th>
                                                 <th>Delete?</th>
                                             </tr>
@@ -44,12 +47,14 @@
                                         <tbody>
                                             <tr class="row_1">
                                                 <td>
-                                                    @Html.DropDownList("ServiceId1", new SelectList(Model.ServiceModelList, "ServiceId", "ServiceNameEnglish"), "Select Service", new { @class = "form-control serviceDD" })
+                                                    @Html.DropDownList("ServiceId1", new SelectList(Model.ServiceModelList, "ServiceId", "ServiceNameEnglish"), "Select Service", new { @class = "form-control serviceDD", @onchange="return changeInService(this);" })
                                                 </td>
-                                                <td> @Html.Editor("Rate1", new { htmlAttributes = new { @class = "form-control rateTxt", @autocomplete = "off", @placeholder = "Rate" } })</td>
+                                                <td>@Html.Editor("ObjectCode1", new { htmlAttributes = new { @class = "form-control objectCode", @autocomplete = "off", @placeholder = "Object Code", @readonly = "readonly" } })</td>
+                                                <td>@Html.Editor("Rate1", new { htmlAttributes = new { @class = "form-control rateTxt", @autocomplete = "off", @placeholder = "Rate" } })</td>
                                                 <td>@Html.Editor("Quantity1", new { htmlAttributes = new { @class = "form-control quantityTxt", @autocomplete = "off", @placeholder = "Quantity" } })</td>
+                                                <td>@Html.Editor("Amount1", new { htmlAttributes = new { @class = "form-control amountTxt", @autocomplete = "off", @placeholder = "Amount", @readonly = "readonly", @onblur="return calculateAmount(this);" } })</td>
                                                 <td>@Html.Editor("Remarks1", new { htmlAttributes = new { @class = "form-control remarksTxt", @autocomplete = "off", @placeholder = "Remarks" } })</td>
-                                                <td><button type="button" class="btn btn-warning mr-1" id="btn-removeRow1" onclick="return removeRow(this);"><i class="icon-delete"></i> Delete</button></td>
+                                                <td><button type="button" class="btn btn-warning mr-1" id="btn-removeRow1" onclick="return removeRow(this);" style="display:none;"><i class="icon-delete"></i> Delete</button></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -71,7 +76,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="projectinput5">Mobile Number</label>
-                                                @Html.EditorFor(m => m.MobileNumber, new { htmlAttributes = new { @class = "form-control", @placeholder = "Mobile Number", @maxlength=10 } })
+                                                @Html.EditorFor(m => m.MobileNumber, new { htmlAttributes = new { @class = "form-control", @placeholder = "Mobile Number", @maxlength = 10 } })
                                                 @Html.ValidationMessageFor(model => model.MobileNumber, "", new { @class = "text-danger" })
                                             </div>
                                         </div>

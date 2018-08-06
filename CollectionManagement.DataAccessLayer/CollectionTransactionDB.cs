@@ -184,5 +184,34 @@ namespace CollectionManagement.DataAccessLayer
                 throw e;
             }
         }
+
+        public ServiceModel GetServicebyId(int serviceId)
+        {
+            try
+            {
+                ServiceModel serviceModel = new ServiceModel();
+                DBHelperModel dbHelperModel = new DBHelperModel();
+                dbHelperModel.StoredProcedureName = "dbo.GetServicebyId";
+                dbHelperModel.StoreProcedureParameters.Add(new KeyValuePair<string, string>("@ServiceId", serviceId.ToString()));
+
+                var result = ExecuteProcedure(dbHelperModel);
+                if (result.Rows.Count > 0)
+                {
+                    serviceModel.ServiceNameEnglish = Convert.ToString(result.Rows[0]["ServiceNameEnglish"]);
+                    serviceModel.ServiceNameMarathi = Convert.ToString(result.Rows[0]["ServiceNameMarathi"]);
+                    serviceModel.FunctionCode = Convert.ToString(result.Rows[0]["FunctionCode"]);
+                    serviceModel.ObjectCode = Convert.ToString(result.Rows[0]["ObjectCode"]);
+                    serviceModel.ServiceId = Convert.ToInt16(result.Rows[0]["ServiceId"]);
+                    serviceModel.DepartmentId = Convert.ToInt16(result.Rows[0]["DepartmentId"]);
+                    serviceModel.IsActive = Convert.ToInt16(result.Rows[0]["IsActive"]);
+                    serviceModel.OperationStatus = 1;
+                }
+                return serviceModel;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
     }
 }
