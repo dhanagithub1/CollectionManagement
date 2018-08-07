@@ -116,13 +116,13 @@
                     <div class="col-md-6 cheque" style="display:none">
                         <div class="form-group">
                             <label for="projectinput5">Cheque Number</label>
-                            @Html.Editor("ChequeNumber", new { htmlAttributes = new { @class = "form-control rateTxt", @autocomplete = "off", @placeholder = "Cheque Number" } })
+                            @Html.Editor("ChequeNumber", new { htmlAttributes = new { @class = "form-control rateTxt", @autocomplete = "off", @placeholder = "Cheque Number", @maxlength = "20" } })
                         </div>
                     </div>
                     <div class="col-md-6 dd" style="display:none">
                         <div class="form-group">
                             <label for="projectinput5">DD Number</label>
-                            @Html.Editor("DDNumber", new { htmlAttributes = new { @class = "form-control rateTxt", @autocomplete = "off", @placeholder = "DD Number" } })
+                            @Html.Editor("DDNumber", new { htmlAttributes = new { @class = "form-control rateTxt", @autocomplete = "off", @placeholder = "DD Number", @maxlength = "20" } })
                         </div>
                     </div>
                 </div>
@@ -130,25 +130,25 @@
                     <div class="col-md-6 cheque" style="display:none">
                         <div class="form-group">
                             <label for="projectinput5">Bank Name</label>
-                            @Html.Editor("BankNameC", new { htmlAttributes = new { @class = "form-control bankName", @autocomplete = "off", @placeholder = "Bank Name" } })
+                            @Html.Editor("BankNameC", new { htmlAttributes = new { @class = "form-control bankName", @autocomplete = "off", @placeholder = "Bank Name", @maxlength = "50" } })
                         </div>
                     </div>
                     <div class="col-md-6 cheque" style="display:none">
                         <div class="form-group">
                             <label for="projectinput5">Bank Address</label>
-                            @Html.Editor("BankAddressC", new { htmlAttributes = new { @class = "form-control bankAddress", @autocomplete = "off", @placeholder = "Bank Address" } })
+                            @Html.Editor("BankAddressC", new { htmlAttributes = new { @class = "form-control bankAddress", @autocomplete = "off", @placeholder = "Bank Address", @maxlength = "50" } })
                         </div>
                     </div>
                     <div class="col-md-6 dd" style="display:none">
                         <div class="form-group">
                             <label for="projectinput5">Bank Name</label>
-                            @Html.Editor("BankNameD", new { htmlAttributes = new { @class = "form-control bankName", @autocomplete = "off", @placeholder = "Bank Name" } })
+                            @Html.Editor("BankNameD", new { htmlAttributes = new { @class = "form-control bankName", @autocomplete = "off", @placeholder = "Bank Name", @maxlength = "50" } })
                         </div>
                     </div>
                     <div class="col-md-6 dd" style="display:none">
                         <div class="form-group">
                             <label for="projectinput5">Bank Address</label>
-                            @Html.Editor("BankAddressD", new { htmlAttributes = new { @class = "form-control bankAddress", @autocomplete = "off", @placeholder = "Bank Address" } })
+                            @Html.Editor("BankAddressD", new { htmlAttributes = new { @class = "form-control bankAddress", @autocomplete = "off", @placeholder = "Bank Address", @maxlength = "50" } })
                         </div>
                     </div>
                     <div class="col-md-6" style="display:none" id="cash">
@@ -168,19 +168,19 @@
                                 <tr>
                                     <th>Number</th>
                                     <td>
-                                        @Html.Editor("Amount2k", new { htmlAttributes = new { @class = "form-control rateTxt", @autocomplete = "off", @placeholder = "Number" } })
+                                        @Html.Editor("Amount2k", new { htmlAttributes = new { @class = "form-control rateTxt", @autocomplete = "off", @placeholder = "Number", @maxlength = "5" } })
                                     </td>
                                     <td>
-                                        @Html.Editor("Amount5h", new { htmlAttributes = new { @class = "form-control rateTxt", @autocomplete = "off", @placeholder = "Number" } })
+                                        @Html.Editor("Amount5h", new { htmlAttributes = new { @class = "form-control rateTxt", @autocomplete = "off", @placeholder = "Number", @maxlength = "5" } })
                                     </td>
                                     <td>
-                                        @Html.Editor("Amount2h", new { htmlAttributes = new { @class = "form-control rateTxt", @autocomplete = "off", @placeholder = "Number" } })
+                                        @Html.Editor("Amount2h", new { htmlAttributes = new { @class = "form-control rateTxt", @autocomplete = "off", @placeholder = "Number", @maxlength = "5" } })
                                     </td>
                                     <td>
-                                        @Html.Editor("Amount1h", new { htmlAttributes = new { @class = "form-control rateTxt", @autocomplete = "off", @placeholder = "Number" } })
+                                        @Html.Editor("Amount1h", new { htmlAttributes = new { @class = "form-control rateTxt", @autocomplete = "off", @placeholder = "Number", @maxlength = "5" } })
                                     </td>
                                     <td>
-                                        @Html.Editor("Amount50", new { htmlAttributes = new { @class = "form-control rateTxt", @autocomplete = "off", @placeholder = "Number" } })
+                                        @Html.Editor("Amount50", new { htmlAttributes = new { @class = "form-control rateTxt", @autocomplete = "off", @placeholder = "Number", @maxlength = "5" } })
                                     </td>
                                 </tr>
                             </tbody>

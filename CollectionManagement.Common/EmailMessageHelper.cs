@@ -25,7 +25,7 @@ namespace CollectionManagement.Common
             //Fetching Email Body Text from EmailTemplate File.  
             string filePath = ConfigurationManager.AppSettings["TemplatePath"].ToString();
             // "D:\\Client_PGB\\TestProject\\CollectionManagement\\CollectionManagement.WebProject\\Template\\EmailTemplate.html";
-            StreamReader str = new StreamReader(filePath);
+            StreamReader str = new StreamReader(System.Web.HttpContext.Current.Server.MapPath(filePath));
             string MailText = str.ReadToEnd();
             str.Close();
 
