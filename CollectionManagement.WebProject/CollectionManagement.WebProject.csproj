@@ -1088,6 +1088,7 @@
     <Content Include="RobustTheme\app-assets\images\glyphicons-halflings-white.png" />
     <Content Include="RobustTheme\app-assets\images\glyphicons-halflings.png" />
     <Content Include="RobustTheme\app-assets\images\green-icon.png" />
+    <Content Include="RobustTheme\app-assets\images\Header_Logo.jpg" />
     <Content Include="RobustTheme\app-assets\images\icons\browser.png" />
     <Content Include="RobustTheme\app-assets\images\icons\chrome.png" />
     <Content Include="RobustTheme\app-assets\images\icons\firefox.png" />

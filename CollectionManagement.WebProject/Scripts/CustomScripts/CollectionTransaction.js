@@ -1,6 +1,6 @@
 ﻿/// <reference path="../jquery-1.10.2.min.js" />
 
-
+var i = 1;
 $('#DepartmentId').change(function () {
 
     var val = $(this).val();
@@ -12,11 +12,51 @@ $('#DepartmentId').change(function () {
             data: { deptId: val },
             success: function (result) {
                 if (result != '') {
-                    $('#ServiceId1').html('');
-                    $('#ServiceId1').append('<option value="0">Select Service</option>');
+                    var v = i;
+                    while (v >= 1) {
+                        $('[id*=ServiceId').html('');
+                        $('[id*=ServiceId').append('<option value="0">Select Service</option>');
+                        // Loop through each of the results and append the option to the dropdown
+                        $.each(result, function (k, a) {
+                            $('[id*=ServiceId').append('<option value="' + a.ServiceId + '">' + a.ServiceNameEnglish + '</option>');
+                        });
+                        v = v - 1;
+                    }
+
+
+                }
+            }
+
+        });
+    }
+});
+
+$('#btn-addNewRow').click(function () {
+    i = i + 1;
+    if ($('.service-rows tbody tr').length == 1) { $('[id*=btn-removeRow').show(); }
+    $('.service-rows tbody').append(
+        '<tr class="row_' + i + '">' +
+        '<td><select class="form-control serviceDD" id="ServiceId' + i + '" name="ServiceId' + i + '" onchange="return changeInService(this);" ><option value="" >Select Service</option></select></td >' +
+        '<td><input autocomplete="off" class="form-control text-box single-line objectCode" id="ObjectCode' + i + '" name="ObjectCode' + i + '" placeholder="Object Code" type="text" value="" readonly="readonly"></td>' +
+        '<td><input autocomplete="off" class="form-control text-box single-line rateTxt numeric" id="Rate' + i + '" name="Rate' + i + '" placeholder="Rate" type="text" value="" onblur="return calculateAmount(this);"></td>' +
+        '<td><input autocomplete="off" class="form-control text-box single-line quantityTxt numeric" id="Quantity' + i + '" name="Quantity' + i + '" placeholder="Quantity" type="text" value=""  onblur="return calculateAmount(this);"></td>' +
+        '<td><input autocomplete="off" class="form-control text-box single-line amountTxt" id="Amount' + i + '" name="Amount' + i + '" placeholder="Amount" type="text" value="" readonly="readonly"></td>' +
+        '<td><input autocomplete="off" class="form-control text-box single-line remarksTxt" id="Remarks' + i + '" name="Remarks' + i + '" placeholder="Remarks" type="text" value=""></td>' +
+        '<td><button type="button" class="btn btn-warning mr-1" id="btn-removeRow' + i + '" onclick="return removeRow(this);"><i class="icon-delete"></i> Delete</button></td></tr>'
+    );
+    if ($('#DepartmentId').val() != "") {
+        $.ajax({
+            url: '/Dashboard/GetServiceByDept',
+            type: 'post',
+            async: false,
+            data: { deptId: $('#DepartmentId').val() },
+            success: function (result) {
+                if (result != '') {
+                    $('#ServiceId' + i).html('');
+                    $('#ServiceId' + i).append('<option value="0">Select Service</option>');
                     // Loop through each of the results and append the option to the dropdown
                     $.each(result, function (k, v) {
-                        $('#ServiceId1').append('<option value="' + v.ServiceId + '">' + v.ServiceNameEnglish + '</option>');
+                        $('#ServiceId' + i).append('<option value="' + v.ServiceId + '">' + v.ServiceNameEnglish + '</option>');
                     });
                 }
             }
@@ -24,46 +64,17 @@ $('#DepartmentId').change(function () {
         });
     }
 });
-var i = 1;
-$('#btn-addNewRow').click(function () {
-    i = i + 1;
-    if (i >= 2) { $('#btn-removeRow1').show(); }
-    $('.service-rows tbody').append(
-        '<tr class="row_' + i + '">' +
-        '<td><select class="form-control serviceDD" id="ServiceId' + i + '" name="ServiceId' + i + '" onchange="return changeInService(this);" ><option value="" >Select Service</option></select></td >' +
-        '<td><input autocomplete="off" class="form-control text-box single-line objectCode" id="ObjectCode' + i + '" name="ObjectCode' + i + '" placeholder="Object Code" type="text" value="" readonly="readonly"></td>' +
-        '<td><input autocomplete="off" class="form-control text-box single-line rateTxt" id="Rate' + i + '" name="Rate' + i + '" placeholder="Rate" type="text" value=""></td>' +
-        '<td><input autocomplete="off" class="form-control text-box single-line quantityTxt" id="Quantity' + i + '" name="Quantity' + i + '" placeholder="Quantity" type="text" value=""  onblur="return calculateAmount(this);"></td>' +
-        '<td><input autocomplete="off" class="form-control text-box single-line amountTxt" id="Amount' + i + '" name="Amount' + i + '" placeholder="Amount" type="text" value="" readonly="readonly"></td>' +
-        '<td><input autocomplete="off" class="form-control text-box single-line remarksTxt" id="Remarks' + i + '" name="Remarks' + i + '" placeholder="Remarks" type="text" value=""></td>' +
-        '<td><button type="button" class="btn btn-warning mr-1" id="btn-removeRow' + i + '" onclick="return removeRow(this);"><i class="icon-delete"></i> Delete</button></td></tr>'
-    );
-
-    $.ajax({
-        url: '/Dashboard/GetServiceByDept',
-        type: 'post',
-        async: false,
-        data: { deptId: $('#DepartmentId').val() },
-        success: function (result) {
-            if (result != '') {
-                $('#ServiceId' + i).html('');
-                $('#ServiceId' + i).append('<option value="0">Select Service</option>');
-                // Loop through each of the results and append the option to the dropdown
-                $.each(result, function (k, v) {
-                    $('#ServiceId' + i).append('<option value="' + v.ServiceId + '">' + v.ServiceNameEnglish + '</option>');
-                });
-            }
-        }
-
-    });
-});
 
 function removeRow(obj) {
     var elem = $(obj).parent().parent();
+
     $(elem).remove();
     i = i - 1;
     if (i >= 2) { $('#btn-removeRow1').show(); }
     else { $('#btn-removeRow1').hide(); }
+    if ($('.service-rows tbody tr').length == 1) {
+        $('[id*=btn-removeRow').hide();
+    }
 }
 
 $('#btn-SaveForm').click(function (e) {
@@ -159,8 +170,17 @@ function calculateAmount(obj) {
     var totalAmount = 0;
     var amount = 0;
     var attrId = $(obj).attr('id');
-    var rate = $(obj).closest('tr').find('.rateTxt').val();
-    var quantity = $(obj).val();
+    var attrClass = $(obj).attr('class');
+    var rate = 0;
+    var quantity = 0;
+    if (attrClass.indexOf("quantityTxt") > -1) {
+        rate = $(obj).parent().parent('tr').find('.rateTxt').val();
+        quantity = $(obj).val();
+    }
+    else if (attrClass.indexOf("rateTxt") > -1) {
+        quantity = $(obj).parent().parent('tr').find('.quantityTxt').val();
+        rate = $(obj).val();
+    }
     if ($.isNumeric(rate) && $.isNumeric(quantity)) {
         amount = rate * quantity;
     }
@@ -178,3 +198,24 @@ function calculateAmount(obj) {
     });
     $('#TotalAmount').val(totalAmount.toFixed(2));
 }
+
+
+$(".numeric").keydown(function (event) {
+    var flag = false;
+
+    if (event.shiftKey == true) {
+        event.preventDefault();
+    }
+    // Allow Only: keyboard 0-9, numpad 0-9, backspace, tab, left arrow, right arrow, delete
+    if ((event.keyCode >= 48 && event.keyCode <= 57) || (event.keyCode >= 96 && event.keyCode <= 105) || event.keyCode == 8 || event.keyCode == 9 || event.keyCode == 37 || event.keyCode == 39 || event.keyCode == 46) {
+        // Allow normal operation
+        flag = true;
+    } else {
+        // Prevent the rest
+        event.preventDefault();
+    }
+
+    if (flag) {
+
+    }
+});

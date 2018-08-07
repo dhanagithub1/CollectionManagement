@@ -15,6 +15,7 @@ namespace CollectionManagement.BusinessEntityLayer.ViewModel
         [Required(ErrorMessage = "This field is required.")]
         public string ApplicantName { get; set; }
         [Required(ErrorMessage = "This field is required.")]
+        [RegularExpression(@"^[6789]\d{9}$", ErrorMessage = "Enter valid mobile number.")]
         public string MobileNumber { get; set; }
         [Required(ErrorMessage = "This field is required.")]
         public string Address { get; set; }
@@ -22,6 +23,7 @@ namespace CollectionManagement.BusinessEntityLayer.ViewModel
         public string AadhaarNumber { get; set; }
         [Required(ErrorMessage = "This field is required.")]
         public string PanNumber { get; set; }
+        [Required(ErrorMessage = "This field is required.")]
         public string ApplicantGSTNumber { get; set; }
         public decimal TotalAmount { get; set; }
         public string ChequeNumber { get; set; }
@@ -37,6 +39,7 @@ namespace CollectionManagement.BusinessEntityLayer.ViewModel
         public string Remarks { get; set; }
         public string DepartmentName { get; set; }
         [Required(ErrorMessage = "This field is required.")]
+        //[RegularExpression(@"^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$", ErrorMessage = "Enter valid email address.")]
         public string EmailAddress { get; set; }
     }
 }

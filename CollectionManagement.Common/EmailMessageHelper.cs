@@ -23,7 +23,8 @@ namespace CollectionManagement.Common
         public void SendEmail(EmailMessageModel emailMessageModel)
         {
             //Fetching Email Body Text from EmailTemplate File.  
-            string filePath = "D:\\Client_PGB\\TestProject\\CollectionManagement\\CollectionManagement.WebProject\\Template\\EmailTemplate.html";
+            string filePath = ConfigurationManager.AppSettings["TemplatePath"].ToString();
+            // "D:\\Client_PGB\\TestProject\\CollectionManagement\\CollectionManagement.WebProject\\Template\\EmailTemplate.html";
             StreamReader str = new StreamReader(filePath);
             string MailText = str.ReadToEnd();
             str.Close();

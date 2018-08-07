@@ -1,4 +1,4 @@
-﻿USE [Collection]
+﻿USE [CollectionManagement]
 GO
 /****** Object:  StoredProcedure [dbo].[AddTransactionData]    Script Date: 8/7/2018 1:53:08 PM ******/
 SET ANSI_NULLS ON

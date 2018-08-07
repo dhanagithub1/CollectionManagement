@@ -22,11 +22,11 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="projectinput5">Enter Unique Transaction Id</label>
-                                            @Html.Editor("TransactionId", new { htmlAttributes = new { @class = "form-control", @autocomplete = "off", @placeholder = "Transaction Id" } })
+                                            @Html.Editor("TransactionId", new { htmlAttributes = new { @class = "form-control", @autocomplete = "off", @placeholder = "Transaction Id", @maxlength = "50" } })
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-actions">                                 
+                                <div class="form-actions">
                                     <button type="button" class="btn btn-primary" id="btn-GetData">
                                         <i class="icon-data"></i> Get Transaction
                                     </button>
@@ -35,7 +35,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="card" id="div-txnData" style="display:none">                   
+                <div class="card" id="div-txnData" style="display:none">
                 </div>
             </div>
         </div>
