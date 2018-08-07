@@ -93,7 +93,7 @@ namespace CollectionManagement.DataAccessLayer
 
         }
 
-        public int ExecuteNonQuery(DBHelperModel dbHelperModel)
+        public int ExecuteNonQuery(DBHelperModel dbHelperModel, out string transactionId)
         {
             try
             {
@@ -111,7 +111,12 @@ namespace CollectionManagement.DataAccessLayer
                         }
                     }
                     command.Parameters.Add(dbHelperModel.SqlParameter);
+                    command.Parameters.Add("@OutTransactionId", SqlDbType.Char, 500);
+                    command.Parameters["@OutTransactionId"].Direction = ParameterDirection.Output;
+
                     var result = command.ExecuteNonQuery();
+
+                    transactionId = (string)command.Parameters["@OutTransactionId"].Value;
 
                     return result;
                 }

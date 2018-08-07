@@ -47,12 +47,12 @@
                                         <tbody>
                                             <tr class="row_1">
                                                 <td>
-                                                    @Html.DropDownList("ServiceId1", new SelectList(Model.ServiceModelList, "ServiceId", "ServiceNameEnglish"), "Select Service", new { @class = "form-control serviceDD", @onchange="return changeInService(this);" })
+                                                    @Html.DropDownList("ServiceId1", new SelectList(Model.ServiceModelList, "ServiceId", "ServiceNameEnglish"), "Select Service", new { @class = "form-control serviceDD", @onchange = "return changeInService(this);" })
                                                 </td>
                                                 <td>@Html.Editor("ObjectCode1", new { htmlAttributes = new { @class = "form-control objectCode", @autocomplete = "off", @placeholder = "Object Code", @readonly = "readonly" } })</td>
                                                 <td>@Html.Editor("Rate1", new { htmlAttributes = new { @class = "form-control rateTxt", @autocomplete = "off", @placeholder = "Rate" } })</td>
-                                                <td>@Html.Editor("Quantity1", new { htmlAttributes = new { @class = "form-control quantityTxt", @autocomplete = "off", @placeholder = "Quantity" } })</td>
-                                                <td>@Html.Editor("Amount1", new { htmlAttributes = new { @class = "form-control amountTxt", @autocomplete = "off", @placeholder = "Amount", @readonly = "readonly", @onblur="return calculateAmount(this);" } })</td>
+                                                <td>@Html.Editor("Quantity1", new { htmlAttributes = new { @class = "form-control quantityTxt", @autocomplete = "off", @placeholder = "Quantity", @onblur = "return calculateAmount(this);" } })</td>
+                                                <td>@Html.Editor("Amount1", new { htmlAttributes = new { @class = "form-control amountTxt", @autocomplete = "off", @placeholder = "Amount", @readonly = "readonly" } })</td>
                                                 <td>@Html.Editor("Remarks1", new { htmlAttributes = new { @class = "form-control remarksTxt", @autocomplete = "off", @placeholder = "Remarks" } })</td>
                                                 <td><button type="button" class="btn btn-warning mr-1" id="btn-removeRow1" onclick="return removeRow(this);" style="display:none;"><i class="icon-delete"></i> Delete</button></td>
                                             </tr>
@@ -84,11 +84,20 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
+                                                <label for="projectinput5">Email</label>
+                                                @Html.EditorFor(m => m.EmailAddress, new { htmlAttributes = new { @class = "form-control", @placeholder = "Email Address" } })
+                                                @Html.ValidationMessageFor(model => model.EmailAddress, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
                                                 <label for="projectinput5">Address</label>
                                                 @Html.EditorFor(m => m.Address, new { htmlAttributes = new { @class = "form-control", @placeholder = "Address" } })
                                                 @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
                                             </div>
-                                        </div>
+                                        </div>                                      
+                                    </div>
+                                    <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="projectinput5">Applicant GST Number</label>

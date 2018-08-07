@@ -103,11 +103,14 @@ namespace CollectionManagement.DataAccessLayer
                 parameter.Value = dataTable;
                 dbHelperModel.SqlParameter = parameter;
 
-                var result = ExecuteNonQuery(dbHelperModel);
+                string transactionId = "";
+
+                var result = ExecuteNonQuery(dbHelperModel, out transactionId);
                 if (result != 0)
                 {
                     operationModel.OperationStatus = (int)OperationStatus.Success;
                     operationModel.OperationMessage = "Success";
+                    operationModel.OperationLogId = transactionId.Trim();
                 }
                 else
                 {

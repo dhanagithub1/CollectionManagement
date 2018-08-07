@@ -1,6 +1,6 @@
-﻿USE [CollectionManagement]
+﻿USE [Collection]
 GO
-/****** Object:  StoredProcedure [dbo].[AddTransactionData]    Script Date: 8/5/2018 12:23:59 AM ******/
+/****** Object:  StoredProcedure [dbo].[AddTransactionData]    Script Date: 8/7/2018 1:53:08 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -25,7 +25,8 @@ ALTER PROCEDURE [dbo].[AddTransactionData]
 	--@CreatedOn DATETIME=GETDATE,
 	@CreatedBy INT,
 	@Remarks VARCHAR(500)=NULL,
-	@DepartmentId int=0
+	@DepartmentId int=0,
+	@OutTransactionId VARCHAR(50) OUT
 )
 
 
@@ -36,7 +37,7 @@ BEGIN
 	SET NOCOUNT ON;
 	BEGIN TRY
 	BEGIN TRAN
-
+	SET @OutTransactionId= '';
   INSERT INTO [dbo].[CollectionTransaction]
            ([TransactionId]
            ,[TransactionStatus]
@@ -70,6 +71,8 @@ BEGIN
 
 		   DECLARE @InsertedId BIGINT = @@IDENTITY;
 
+		   SET @OutTransactionId=(SELECT [TransactionId] FROM [dbo].[CollectionTransaction] WHERE [CollectionTransactionId]=@InsertedId);
+
 		   INSERT INTO [dbo].[TransactionService]
            ([CollectionTransactionId]
            ,[ServiceId]
@@ -88,6 +91,7 @@ BEGIN
            ,@CreatedBy
 	FROM	@TransactionList
 	SELECT @@ROWCOUNT;
+	
 	COMMIT;
 	END TRY
 	BEGIN CATCH

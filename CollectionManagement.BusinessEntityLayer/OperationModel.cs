@@ -11,6 +11,7 @@ namespace CollectionManagement.BusinessEntityLayer
     {
         public int OperationStatus { get; set; }
         public string OperationMessage { get; set; }
+        public string OperationLogId { get; set; }
 
         //AuditFields
         public DateTime CreatedOn { get; set; }

@@ -36,5 +36,7 @@ namespace CollectionManagement.BusinessEntityLayer.ViewModel
         public long CreatedBy { get; set; }
         public string Remarks { get; set; }
         public string DepartmentName { get; set; }
+        [Required(ErrorMessage = "This field is required.")]
+        public string EmailAddress { get; set; }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using CollectionManagement.BusinessEntityLayer;
 using CollectionManagement.BusinessEntityLayer.ViewModel;
 using CollectionManagement.BusinessLayer.Interface;
+using CollectionManagement.Common;
 using CollectionManagement.DataAccessLayer;
 using System;
 using System.Collections.Generic;
@@ -75,7 +76,7 @@ namespace CollectionManagement.BusinessLayer
                 collectionTransactionModel.ApplicantGSTNumber = collectionTransactionViewModel.ApplicantGSTNumber;
                 collectionTransactionModel.TotalAmount = collectionTransactionViewModel.TotalAmount;
                 collectionTransactionModel.CreatedBy = collectionTransactionViewModel.CreatedBy;
-                collectionTransactionModel.TransactionId = Guid.NewGuid().ToString();
+                collectionTransactionModel.TransactionId = Guid.NewGuid().ToString().Trim();
                 collectionTransactionModel.TransactionStatus = (int)TransactionStatus.Pending;
                 collectionTransactionModel.Remarks = collectionTransactionViewModel.Remarks;
                 collectionTransactionModel.DepartmentId = collectionTransactionViewModel.DepartmentId;
@@ -100,6 +101,15 @@ namespace CollectionManagement.BusinessLayer
                 using (CollectionTransactionDB collectionTransactionDB = new CollectionTransactionDB())
                 {
                     operationModel = collectionTransactionDB.AddTransactionData(collectionTransactionModel, dataTable);
+                }
+                if (operationModel.OperationStatus == (int)EnumModel.OperationStatus.Success)
+                {
+                    EmailMessageHelper emailMessageHelper = new EmailMessageHelper();
+                    EmailMessageModel emailMessageModel = new EmailMessageModel();
+                    emailMessageModel.ReceiverEmailAddress = collectionTransactionViewModel.EmailAddress;
+                    emailMessageModel.ApplicantName = collectionTransactionViewModel.ApplicantName;
+                    emailMessageModel.TransactionId = operationModel.OperationLogId;
+                    emailMessageHelper.SendEmail(emailMessageModel);
                 }
                 return operationModel;
             }

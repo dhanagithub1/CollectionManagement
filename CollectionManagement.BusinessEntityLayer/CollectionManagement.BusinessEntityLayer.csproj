@@ -45,6 +45,7 @@
     <Compile Include="CollectionTransactionModel.cs" />
     <Compile Include="DBHelperModel.cs" />
     <Compile Include="DepartmentModel.cs" />
+    <Compile Include="EmailMessageModel.cs" />
     <Compile Include="OperationModel.cs" />
     <Compile Include="ServiceModel.cs" />
     <Compile Include="TransationServiceModel.cs" />
