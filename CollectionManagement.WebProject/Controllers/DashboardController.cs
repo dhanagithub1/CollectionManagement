@@ -2,6 +2,7 @@
 using CollectionManagement.BusinessEntityLayer.ViewModel;
 using CollectionManagement.BusinessLayer;
 using CollectionManagement.BusinessLayer.Interface;
+using CollectionManagement.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -92,6 +93,21 @@ namespace CollectionManagement.WebProject.Controllers
                 using (ICollectionTransaction collectionTransactionBL = new CollectionTransactionBL())
                 {
                     CollectionTransactionViewModel collectionTransactionViewModel = collectionTransactionBL.GetCollectionTransactionDetails(txnid);
+                    if (collectionTransactionViewModel.TransactionStatus == (int)EnumModel.TransactionStatus.Pending)
+                    {
+                        Array values = Enum.GetValues(typeof(EnumModel.ModeofPayment));
+                        List<SelectListItem> items = new List<SelectListItem>(values.Length);
+
+                        foreach (var i in values)
+                        {
+                            items.Add(new SelectListItem
+                            {
+                                Text = Enum.GetName(typeof(EnumModel.ModeofPayment), i),
+                                Value = ((int)i).ToString()
+                            });
+                        }
+                        ViewBag.ListMOP = new SelectList(items, "Text", "Value", "Select");
+                    }
                     return View("_TransactionData", collectionTransactionViewModel);
                 }
             }
@@ -111,6 +127,25 @@ namespace CollectionManagement.WebProject.Controllers
                     serviceModel = collectionTransactionBL.GetServicebyId(serviceId);
                 }
                 return Json(serviceModel.ObjectCode, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public ActionResult SavePaymentDetails(CollectionTransactionViewModel collectionTransactionViewModel)
+        {
+            try
+            {
+                UserModel userModel = new UserModel();
+                userModel = (UserModel)Session["UserModel"];
+                collectionTransactionViewModel.CreatedBy = userModel.UserId;
+                using (ICollectionTransaction collectionTransactionBL = new CollectionTransactionBL())
+                {
+                    OperationModel operationModel = collectionTransactionBL.SavePaymentDetails(collectionTransactionViewModel);
+                    return Json(new { result = operationModel.OperationMessage }, JsonRequestBehavior.AllowGet);
+                }
             }
             catch (Exception e)
             {

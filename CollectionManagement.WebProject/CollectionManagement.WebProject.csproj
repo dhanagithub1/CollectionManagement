@@ -1538,7 +1538,9 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Template\EmailTemplate.html" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -1580,6 +1582,10 @@
     <ProjectReference Include="..\CollectionManagement.BusinessLayer\CollectionManagement.BusinessLayer.csproj">
       <Project>{6F808719-3739-4CE0-9C07-D860B6BE1980}</Project>
       <Name>CollectionManagement.BusinessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CollectionManagement.Common\CollectionManagement.Common.csproj">
+      <Project>{54F50F35-79A2-43A7-9587-4136CCBB8D0A}</Project>
+      <Name>CollectionManagement.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

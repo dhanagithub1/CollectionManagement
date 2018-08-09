@@ -28,8 +28,6 @@ namespace CollectionManagement.BusinessEntityLayer.ViewModel
         public decimal TotalAmount { get; set; }
         public string ChequeNumber { get; set; }
         public string DDNumber { get; set; }
-        public string BankName { get; set; }
-        public string BankAddress { get; set; }
         public List<ServiceModel> ServiceModelList { get; set; }
         public List<DepartmentModel> DepartmentModelList { get; set; }
         public List<TransationServiceModel> TransactionServiceModelList { get; set; }
@@ -41,5 +39,14 @@ namespace CollectionManagement.BusinessEntityLayer.ViewModel
         [Required(ErrorMessage = "This field is required.")]
         //[RegularExpression(@"^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$", ErrorMessage = "Enter valid email address.")]
         public string EmailAddress { get; set; }
+        public int Denomination2K { get; set; }
+        public int Denomination5H { get; set; }
+        public int Denomination2H { get; set; }
+        public int Denomination1H { get; set; }
+        public string BankNameC { get; set; }
+        public string BankAddressC { get; set; }
+        public string BankNameD { get; set; }
+        public string BankAddressD { get; set; }
+        public int ModeOfPayment { get; set; }
     }
 }

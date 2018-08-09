@@ -70,6 +70,7 @@
     <None Include="StoredProcedure\GetTransactionServices.sql" />
     <None Include="InsertDataScript.sql" />
     <None Include="StoredProcedure\GetServicebyId.sql" />
+    <None Include="StoredProcedure\SavePaymentDetails.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ProjectCollection.sql" />

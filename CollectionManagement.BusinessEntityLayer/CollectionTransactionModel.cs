@@ -25,5 +25,12 @@ namespace CollectionManagement.BusinessEntityLayer
         public string Remarks { get; set; }
         public int DepartmentId { get; set; }
         public string DepartmentName { get; set; }
+        public int Denomination2K { get; set; }
+        public int Denomination5H { get; set; }
+        public int Denomination2H { get; set; }
+        public int Denomination1H { get; set; }
+        public int ModeOfPayment { get; set; }
+        public long UpdatedBy { get; set; }
+        public DateTime UpdatedOn { get; set; }
     }
 }

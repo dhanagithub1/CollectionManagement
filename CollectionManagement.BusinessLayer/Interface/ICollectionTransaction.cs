@@ -15,5 +15,6 @@ namespace CollectionManagement.BusinessLayer.Interface
         OperationModel AddTransactionData(CollectionTransactionViewModel collectionTransactionViewModel);
         CollectionTransactionViewModel GetCollectionTransactionDetails(string txnId);
         ServiceModel GetServicebyId(int serviceId);
+        OperationModel SavePaymentDetails(CollectionTransactionViewModel collectionTransactionViewModel);
     }
 }

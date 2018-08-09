@@ -38,6 +38,11 @@ BEGIN
       ,C.[Remarks]
 	  ,C.DepartmentId
 	  ,D.DepartmentNameEnglish AS DepartmentName
+	  ,Denomination2K
+	  ,Denomination5H
+	  ,Denomination2H
+	  ,Denomination1H
+	  ,ModeOfPayment
   FROM [dbo].[CollectionTransaction] C
   INNER JOIN Department D
   ON D.DepartmentId=C.DepartmentId

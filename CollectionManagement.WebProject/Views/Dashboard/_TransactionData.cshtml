@@ -10,7 +10,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label>Department</label>
+                        <label class="col-md-5">Department</label>
                         @Html.DisplayFor(model => model.DepartmentName)
                     </div>
                 </div>
@@ -45,13 +45,13 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label>Transaction Id</label>
+                        <label class="col-md-5">Transaction Id</label>
                         @Html.DisplayFor(model => model.TransactionId)
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label>Transaction Status</label>
+                        <label class="col-md-5">Transaction Status</label>
                         @(((EnumModel.TransactionStatus)Model.TransactionStatus).ToString())
                     </div>
                 </div>
@@ -59,13 +59,13 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label>Applicant Name</label>
+                        <label class="col-md-5">Applicant Name</label>
                         @Html.DisplayFor(model => model.ApplicantName)
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label>Mobile Number</label>
+                        <label class="col-md-5">Mobile Number</label>
                         @Html.DisplayFor(model => model.MobileNumber)
                     </div>
                 </div>
@@ -73,13 +73,13 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label>Address</label>
+                        <label class="col-md-5">Address</label>
                         @Html.DisplayFor(model => model.Address)
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label>Applicant GST Number</label>
+                        <label class="col-md-5">Applicant GST Number</label>
                         @Html.DisplayFor(model => model.ApplicantGSTNumber)
                     </div>
                 </div>
@@ -87,117 +87,207 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="projectinput5">Total Amount</label>
+                        <label class="col-md-5">Total Amount</label>
                         @Html.DisplayFor(model => model.TotalAmount)
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="projectinput5">Remarks</label>
+                        <label class="col-md-5">Remarks</label>
                         @Html.DisplayFor(model => model.Remarks)
                     </div>
                 </div>
             </div>
             @if (Model.TransactionStatus == (int)EnumModel.TransactionStatus.Pending)
             {
-                <span class="text-danger" id="validationMsg"></span>
+                using (Html.BeginForm("SavePaymentDetails", "Dashboard", FormMethod.Post, new { id = "paymentDetailsForm", enctype = "multipart/form-data" }))
+                {
+                    @Html.HiddenFor(model => model.CollectionTransactionId)
+                    @Html.HiddenFor(model => model.TransactionId)
+                    <span class="text-danger" id="validationMsg"></span>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="col-md-5">Mode of Payment</label>
+                                @Html.DropDownList("ModeOfPayment", new SelectList(ViewBag.ListMOP, "Text", "Value", "Select"), "Select", new { @class = "form-control", @onchange = "return changeMOP(this);" })
+                            </div>
+                        </div>
+                        <div class="col-md-6 cheque" style="display:none">
+                            <div class="form-group">
+                                <label class="col-md-5">Cheque Number</label>
+                                @Html.Editor("ChequeNumber", new { htmlAttributes = new { @class = "form-control rateTxt", @autocomplete = "off", @placeholder = "Cheque Number", @maxlength = "20" } })
+                            </div>
+                        </div>
+                        <div class="col-md-6 dd" style="display:none">
+                            <div class="form-group">
+                                <label class="col-md-5">DD Number</label>
+                                @Html.Editor("DDNumber", new { htmlAttributes = new { @class = "form-control rateTxt", @autocomplete = "off", @placeholder = "DD Number", @maxlength = "20" } })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 cheque" style="display:none">
+                            <div class="form-group">
+                                <label class="col-md-5">Bank Name</label>
+                                @Html.Editor("BankNameC", new { htmlAttributes = new { @class = "form-control bankName", @autocomplete = "off", @placeholder = "Bank Name", @maxlength = "50" } })
+                            </div>
+                        </div>
+                        <div class="col-md-6 cheque" style="display:none">
+                            <div class="form-group">
+                                <label class="col-md-5">Bank Address</label>
+                                @Html.Editor("BankAddressC", new { htmlAttributes = new { @class = "form-control bankAddress", @autocomplete = "off", @placeholder = "Bank Address", @maxlength = "50" } })
+                            </div>
+                        </div>
+                        <div class="col-md-6 dd" style="display:none">
+                            <div class="form-group">
+                                <label class="col-md-5">Bank Name</label>
+                                @Html.Editor("BankNameD", new { htmlAttributes = new { @class = "form-control bankName", @autocomplete = "off", @placeholder = "Bank Name", @maxlength = "50" } })
+                            </div>
+                        </div>
+                        <div class="col-md-6 dd" style="display:none">
+                            <div class="form-group">
+                                <label class="col-md-5">Bank Address</label>
+                                @Html.Editor("BankAddressD", new { htmlAttributes = new { @class = "form-control bankAddress", @autocomplete = "off", @placeholder = "Bank Address", @maxlength = "50" } })
+                            </div>
+                        </div>
+                        <div class="col-md-6" style="display:none" id="cash">
+                            <table class="service-rows">
+                                <thead>
+                                    <tr><td colspan="6">Denominations</td></tr>
+                                    <tr>
+                                        <th>Amount in Rs.</th>
+                                        <th>2000</th>
+                                        <th>500</th>
+                                        <th>200</th>
+                                        <th>100</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th>Number</th>
+                                        <td>
+                                            @Html.Editor("Denomination2K", new { htmlAttributes = new { @class = "form-control numeric", @autocomplete = "off", @placeholder = "Number", @maxlength = "5" } })
+                                        </td>
+                                        <td>
+                                            @Html.Editor("Denomination5H", new { htmlAttributes = new { @class = "form-control numeric", @autocomplete = "off", @placeholder = "Number", @maxlength = "5" } })
+                                        </td>
+                                        <td>
+                                            @Html.Editor("Denomination2H", new { htmlAttributes = new { @class = "form-control numeric", @autocomplete = "off", @placeholder = "Number", @maxlength = "5" } })
+                                        </td>
+                                        <td>
+                                            @Html.Editor("Denomination1H", new { htmlAttributes = new { @class = "form-control numeric", @autocomplete = "off", @placeholder = "Number", @maxlength = "5" } })
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-warning mr-1" id="btn-cancelForm" onclick="return cancelForm();">
+                            <i class="icon-cross2"></i> Cancel
+                        </button>
+                        <button type="button" class="btn btn-blue mr-1" id="btn-saveMoP" onclick="return saveMOP();">
+                            <i class="icon-box-add"></i> Save
+                        </button>
+                    </div>
+                }
+            }
+            else if (Model.TransactionStatus == (int)EnumModel.TransactionStatus.Success)
+            {
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="projectinput5">Mode of Payment</label>
-                            <select id="modeOfPayment" class="form-control" onchange="return changeMOP(this);">
-                                <option value="0">select</option>
-                                <option value="1">Cash</option>
-                                <option value="2">Cheque</option>
-                                <option value="3">DD</option>
-                            </select>
+                            <label class="col-md-5">Mode of Payment</label>
+                            @(((EnumModel.ModeofPayment)Model.ModeOfPayment).ToString())
                         </div>
                     </div>
-                    <div class="col-md-6 cheque" style="display:none">
-                        <div class="form-group">
-                            <label for="projectinput5">Cheque Number</label>
-                            @Html.Editor("ChequeNumber", new { htmlAttributes = new { @class = "form-control rateTxt", @autocomplete = "off", @placeholder = "Cheque Number", @maxlength = "20" } })
+                    @if ((Model.ModeOfPayment == (int)EnumModel.ModeofPayment.Cheque))
+                    {
+                        <div class="col-md-6 ">
+                            <div class="form-group">
+                                <label class="col-md-5">Cheque Number</label>
+                                @Html.DisplayFor(model => model.ChequeNumber)
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-6 dd" style="display:none">
-                        <div class="form-group">
-                            <label for="projectinput5">DD Number</label>
-                            @Html.Editor("DDNumber", new { htmlAttributes = new { @class = "form-control rateTxt", @autocomplete = "off", @placeholder = "DD Number", @maxlength = "20" } })
+                    }
+                    @if ((Model.ModeOfPayment == (int)EnumModel.ModeofPayment.DD))
+                    {
+                        <div class="col-md-6 ">
+                            <div class="form-group">
+                                <label class="col-md-5">DD Number</label>
+                                @Html.DisplayFor(model => model.DDNumber)
+                            </div>
                         </div>
-                    </div>
+                    }
                 </div>
                 <div class="row">
-                    <div class="col-md-6 cheque" style="display:none">
-                        <div class="form-group">
-                            <label for="projectinput5">Bank Name</label>
-                            @Html.Editor("BankNameC", new { htmlAttributes = new { @class = "form-control bankName", @autocomplete = "off", @placeholder = "Bank Name", @maxlength = "50" } })
+                    @if ((Model.ModeOfPayment == (int)EnumModel.ModeofPayment.DD))
+                    {
+                        <div class="col-md-6 ">
+                            <div class="form-group">
+                                <label class="col-md-5">Bank Name</label>
+                                @Html.DisplayFor(model => model.BankNameD)
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-6 cheque" style="display:none">
-                        <div class="form-group">
-                            <label for="projectinput5">Bank Address</label>
-                            @Html.Editor("BankAddressC", new { htmlAttributes = new { @class = "form-control bankAddress", @autocomplete = "off", @placeholder = "Bank Address", @maxlength = "50" } })
+                        <div class="col-md-6 ">
+                            <div class="form-group">
+                                <label class="col-md-5">Bank Address</label>
+                                @Html.DisplayFor(model => model.BankAddressD)
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-6 dd" style="display:none">
-                        <div class="form-group">
-                            <label for="projectinput5">Bank Name</label>
-                            @Html.Editor("BankNameD", new { htmlAttributes = new { @class = "form-control bankName", @autocomplete = "off", @placeholder = "Bank Name", @maxlength = "50" } })
+                    }
+                    @if ((Model.ModeOfPayment == (int)EnumModel.ModeofPayment.Cheque))
+                    {
+                        <div class="col-md-6 ">
+                            <div class="form-group">
+                                <label class="col-md-5"> Bank Name</label>
+                                @Html.DisplayFor(model => model.BankNameC)
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-6 dd" style="display:none">
-                        <div class="form-group">
-                            <label for="projectinput5">Bank Address</label>
-                            @Html.Editor("BankAddressD", new { htmlAttributes = new { @class = "form-control bankAddress", @autocomplete = "off", @placeholder = "Bank Address", @maxlength = "50" } })
+                        <div class="col-md-6 ">
+                            <div class="form-group">
+                                <label class="col-md-5">Bank Address</label>
+                                @Html.DisplayFor(model => model.BankAddressC)
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-6" style="display:none" id="cash">
-                        <table class="service-rows">
-                            <thead>
-                                <tr><td colspan="6">Denominations</td></tr>
-                                <tr>
-                                    <th>Amount in Rs.</th>
-                                    <th>2000</th>
-                                    <th>500</th>
-                                    <th>200</th>
-                                    <th>100</th>
-                                    <th>50</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th>Number</th>
-                                    <td>
-                                        @Html.Editor("Amount2k", new { htmlAttributes = new { @class = "form-control rateTxt", @autocomplete = "off", @placeholder = "Number", @maxlength = "5" } })
-                                    </td>
-                                    <td>
-                                        @Html.Editor("Amount5h", new { htmlAttributes = new { @class = "form-control rateTxt", @autocomplete = "off", @placeholder = "Number", @maxlength = "5" } })
-                                    </td>
-                                    <td>
-                                        @Html.Editor("Amount2h", new { htmlAttributes = new { @class = "form-control rateTxt", @autocomplete = "off", @placeholder = "Number", @maxlength = "5" } })
-                                    </td>
-                                    <td>
-                                        @Html.Editor("Amount1h", new { htmlAttributes = new { @class = "form-control rateTxt", @autocomplete = "off", @placeholder = "Number", @maxlength = "5" } })
-                                    </td>
-                                    <td>
-                                        @Html.Editor("Amount50", new { htmlAttributes = new { @class = "form-control rateTxt", @autocomplete = "off", @placeholder = "Number", @maxlength = "5" } })
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                    }
+                    @if ((Model.ModeOfPayment == (int)EnumModel.ModeofPayment.Cash))
+                    {
+                        <div class="col-md-6">
+                            <table class="service-rows">
+                                <thead>
+                                    <tr><td colspan="6">Denominations</td></tr>
+                                    <tr>
+                                        <th>Amount in Rs.</th>
+                                        <th>2000</th>
+                                        <th>500</th>
+                                        <th>200</th>
+                                        <th>100</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th>Number</th>
+                                        <td>
+                                            @Html.DisplayFor(model => model.Denomination2K)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(model => model.Denomination5H)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(model => model.Denomination2H)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(model => model.Denomination1H)
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    }
                 </div>
-                <br />
             }
-
-            <div class="form-actions">
-                <button type="button" class="btn btn-warning mr-1" id="btn-cancelForm" onclick="return cancelForm();">
-                    <i class="icon-cross2"></i> Cancel
-                </button>
-                <button type="button" class="btn btn-blue mr-1" id="btn-saveMoP" onclick="return saveMOP();">
-                    <i class="icon-box-add"></i> Save
-                </button>
-            </div>
         </div>
     </div>
 </div>

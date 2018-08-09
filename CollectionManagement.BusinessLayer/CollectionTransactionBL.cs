@@ -141,6 +141,27 @@ namespace CollectionManagement.BusinessLayer
                     collectionTransactionViewModel.TransactionStatus = collectionTransactionModel.TransactionStatus;
                     collectionTransactionViewModel.Remarks = collectionTransactionModel.Remarks;
                     collectionTransactionViewModel.DepartmentName = collectionTransactionModel.DepartmentName;
+                    collectionTransactionViewModel.CollectionTransactionId = collectionTransactionModel.CollectionTransactionId;
+                    collectionTransactionViewModel.ModeOfPayment = collectionTransactionModel.ModeOfPayment;
+                    if (collectionTransactionModel.ModeOfPayment == (int)EnumModel.ModeofPayment.Cheque)
+                    {
+                        collectionTransactionViewModel.BankAddressC = collectionTransactionModel.BankAddress;
+                        collectionTransactionViewModel.BankNameC = collectionTransactionModel.BankName;
+                        collectionTransactionViewModel.ChequeNumber = collectionTransactionModel.ChequeNumber;
+                    }
+                    else if (collectionTransactionModel.ModeOfPayment == (int)EnumModel.ModeofPayment.DD)
+                    {
+                        collectionTransactionViewModel.BankAddressD = collectionTransactionModel.BankAddress;
+                        collectionTransactionViewModel.BankNameD = collectionTransactionModel.BankName;
+                        collectionTransactionViewModel.DDNumber = collectionTransactionModel.DDNumber;
+                    }
+                    else if (collectionTransactionModel.ModeOfPayment == (int)EnumModel.ModeofPayment.Cash)
+                    {
+                        collectionTransactionViewModel.Denomination1H = collectionTransactionModel.Denomination1H;
+                        collectionTransactionViewModel.Denomination2H = collectionTransactionModel.Denomination2H;
+                        collectionTransactionViewModel.Denomination5H = collectionTransactionModel.Denomination5H;
+                        collectionTransactionViewModel.Denomination2K = collectionTransactionModel.Denomination2K;
+                    }
                 }
                 return collectionTransactionViewModel;
             }
@@ -160,6 +181,48 @@ namespace CollectionManagement.BusinessLayer
                     serviceModel = collectionTransactionDB.GetServicebyId(serviceId);
                 }
                 return serviceModel;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public OperationModel SavePaymentDetails(CollectionTransactionViewModel collectionTransactionViewModel)
+        {
+            try
+            {
+                OperationModel operationModel = new OperationModel();
+                CollectionTransactionModel collectionTransactionModel = new CollectionTransactionModel();
+                collectionTransactionModel.ModeOfPayment = collectionTransactionViewModel.ModeOfPayment;
+                if (collectionTransactionModel.ModeOfPayment == (int)EnumModel.ModeofPayment.Cheque)
+                {
+                    collectionTransactionModel.BankAddress = collectionTransactionViewModel.BankAddressC;
+                    collectionTransactionModel.BankName = collectionTransactionViewModel.BankNameC;
+                    collectionTransactionModel.ChequeNumber = collectionTransactionViewModel.ChequeNumber;
+                }
+                if (collectionTransactionModel.ModeOfPayment == (int)EnumModel.ModeofPayment.DD)
+                {
+                    collectionTransactionModel.BankAddress = collectionTransactionViewModel.BankAddressD;
+                    collectionTransactionModel.BankName = collectionTransactionViewModel.BankNameD;
+                    collectionTransactionModel.DDNumber = collectionTransactionViewModel.DDNumber;
+                }
+                if (collectionTransactionModel.ModeOfPayment == (int)EnumModel.ModeofPayment.Cash)
+                {
+                    collectionTransactionModel.Denomination2K = collectionTransactionViewModel.Denomination2K;
+                    collectionTransactionModel.Denomination5H = collectionTransactionViewModel.Denomination5H;
+                    collectionTransactionModel.Denomination2H = collectionTransactionViewModel.Denomination2H;
+                    collectionTransactionModel.Denomination1H = collectionTransactionViewModel.Denomination1H;
+                }
+                collectionTransactionModel.UpdatedBy = collectionTransactionViewModel.CreatedBy;
+                collectionTransactionModel.CollectionTransactionId = collectionTransactionViewModel.CollectionTransactionId;
+                collectionTransactionModel.TransactionStatus = (int)TransactionStatus.Success;
+
+                using (CollectionTransactionDB collectionTransactionDB = new CollectionTransactionDB())
+                {
+                    operationModel = collectionTransactionDB.SavePaymentDetails(collectionTransactionModel);
+                }
+                return operationModel;
             }
             catch (Exception e)
             {

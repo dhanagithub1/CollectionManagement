@@ -145,6 +145,15 @@ namespace CollectionManagement.DataAccessLayer
                 collectionTransactionModel.TotalAmount = Convert.ToDecimal(result.Rows[0]["TotalAmount"]);
                 collectionTransactionModel.Remarks = Convert.ToString(result.Rows[0]["Remarks"]);
                 collectionTransactionModel.DepartmentName = Convert.ToString(result.Rows[0]["DepartmentName"]);
+                collectionTransactionModel.BankName = Convert.ToString(result.Rows[0]["BankName"]);
+                collectionTransactionModel.BankAddress = Convert.ToString(result.Rows[0]["BankAddress"]);
+                collectionTransactionModel.ChequeNumber = Convert.ToString(result.Rows[0]["ChequeNumber"]);
+                collectionTransactionModel.DDNumber = Convert.ToString(result.Rows[0]["DDNumber"]);
+                collectionTransactionModel.Denomination2K = result.Rows[0]["Denomination2K"] == DBNull.Value ? 0 : Convert.ToInt16(result.Rows[0]["Denomination2K"]);
+                collectionTransactionModel.Denomination5H = result.Rows[0]["Denomination5H"] == DBNull.Value ? 0 : Convert.ToInt16(result.Rows[0]["Denomination5H"]);
+                collectionTransactionModel.Denomination2H = result.Rows[0]["Denomination2H"] == DBNull.Value ? 0 : Convert.ToInt16(result.Rows[0]["Denomination2H"]);
+                collectionTransactionModel.Denomination1H = result.Rows[0]["Denomination1H"] == DBNull.Value ? 0 : Convert.ToInt16(result.Rows[0]["Denomination1H"]);
+                collectionTransactionModel.ModeOfPayment = result.Rows[0]["ModeOfPayment"] == DBNull.Value ? 0 : Convert.ToInt16(result.Rows[0]["ModeOfPayment"]);
                 collectionTransactionModel.OperationStatus = (int)OperationStatus.Success;
 
                 return collectionTransactionModel;
@@ -181,6 +190,49 @@ namespace CollectionManagement.DataAccessLayer
                     }
                 }
                 return transationServiceModels;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public OperationModel SavePaymentDetails(CollectionTransactionModel collectionTransactionModel)
+        {
+            try
+            {
+                OperationModel operationModel = new OperationModel();
+                DBHelperModel dbHelperModel = new DBHelperModel();
+                dbHelperModel.StoredProcedureName = "dbo.SavePaymentDetails";
+                dbHelperModel.StoreProcedureParameters.Add(new KeyValuePair<string, string>("@ModeOfPayment", collectionTransactionModel.ModeOfPayment.ToString()));
+                dbHelperModel.StoreProcedureParameters.Add(new KeyValuePair<string, string>("@CollectionTransactionId", collectionTransactionModel.CollectionTransactionId.ToString()));
+                dbHelperModel.StoreProcedureParameters.Add(new KeyValuePair<string, string>("@TransactionStatus", collectionTransactionModel.TransactionStatus.ToString()));
+                dbHelperModel.StoreProcedureParameters.Add(new KeyValuePair<string, string>("@BankName", collectionTransactionModel.BankName));
+                dbHelperModel.StoreProcedureParameters.Add(new KeyValuePair<string, string>("@BankAddress", collectionTransactionModel.BankAddress));
+                dbHelperModel.StoreProcedureParameters.Add(new KeyValuePair<string, string>("@ChequeNumber", collectionTransactionModel.ChequeNumber));
+                dbHelperModel.StoreProcedureParameters.Add(new KeyValuePair<string, string>("@DDNumber", collectionTransactionModel.DDNumber));
+                dbHelperModel.StoreProcedureParameters.Add(new KeyValuePair<string, string>("@Denomination2K", collectionTransactionModel.Denomination2K.ToString()));
+                dbHelperModel.StoreProcedureParameters.Add(new KeyValuePair<string, string>("@Denomination5H", collectionTransactionModel.Denomination5H.ToString()));
+                dbHelperModel.StoreProcedureParameters.Add(new KeyValuePair<string, string>("@Denomination2H", collectionTransactionModel.Denomination2H.ToString()));
+                dbHelperModel.StoreProcedureParameters.Add(new KeyValuePair<string, string>("@Denomination1H", collectionTransactionModel.Denomination1H.ToString()));
+                //dbHelperModel.StoreProcedureParameters.Add(new KeyValuePair<string, string>("@CreatedOn", DateTime.Now.ToString()));
+                dbHelperModel.StoreProcedureParameters.Add(new KeyValuePair<string, string>("@UpdatedBy", collectionTransactionModel.UpdatedBy.ToString()));
+
+                string transactionId = "";
+
+                var result = ExecuteNonQuery(dbHelperModel, out transactionId);
+                if (result != 0)
+                {
+                    operationModel.OperationStatus = (int)OperationStatus.Success;
+                    operationModel.OperationMessage = "Success";
+                    operationModel.OperationLogId = transactionId.Trim();
+                }
+                else
+                {
+                    operationModel.OperationStatus = (int)OperationStatus.Failed;
+                    operationModel.OperationMessage = "ERROR";
+                }
+                return operationModel;
             }
             catch (Exception e)
             {

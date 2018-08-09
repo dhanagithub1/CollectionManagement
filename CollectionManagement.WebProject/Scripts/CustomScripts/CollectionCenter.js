@@ -52,7 +52,7 @@ function changeMOP(obj) {
 function saveMOP() {
     $('#validationMsg').text('');
     var hasError = false;
-    var val = $('#modeOfPayment').val();
+    var val = $('#ModeOfPayment').val();
     if (val == 0) {
         hasError = true;
         $('#validationMsg').text('Payment Details are required.');
@@ -80,7 +80,64 @@ function saveMOP() {
         }
     }
 
-    if (!hasError)
-        window.location.href = '/Dashboard/Index';
+    if (!hasError) {
+        var formData = new FormData();
+        var other_data = $('form').serializeArray();
+        $.each(other_data, function (key, input) {
+            formData.append(input.name, input.value);
+        });
+        $.ajax({
+            url: '/Dashboard/SavePaymentDetails',
+            type: 'post',
+            async: false,
+            data: formData,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (result) {
+                debugger
+                $('#customMsg').text(result.result);
+                $('.alert').show();
+            }
+        });
+
+        setTimeout(
+            function () {
+                // window.location.href = '/Dashboard/Index';
+                $.ajax({
+                    url: '/Dashboard/GetTransactionData',
+                    type: 'post',
+                    async: false,
+                    data: { txnId: $('#TransactionId').val() },
+                    cache: false,
+                    success: function (result) {
+                        $('#div-txnid').hide();
+                        $('#div-txnData').show().html(result);
+                        $('#customMsg').text('');
+                        $('.alert').hide();
+                    }
+                });
+            }, 5000);
+    }
 }
 
+
+$(".numeric").keydown(function (event) {
+    var flag = false;
+
+    if (event.shiftKey == true) {
+        event.preventDefault();
+    }
+    // Allow Only: keyboard 0-9, numpad 0-9, backspace, tab, left arrow, right arrow, delete
+    if ((event.keyCode >= 48 && event.keyCode <= 57) || (event.keyCode >= 96 && event.keyCode <= 105) || event.keyCode == 8 || event.keyCode == 9 || event.keyCode == 37 || event.keyCode == 39 || event.keyCode == 46) {
+        // Allow normal operation
+        flag = true;
+    } else {
+        // Prevent the rest
+        event.preventDefault();
+    }
+
+    if (flag) {
+
+    }
+});

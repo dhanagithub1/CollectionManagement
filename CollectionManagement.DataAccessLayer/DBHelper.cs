@@ -110,14 +110,18 @@ namespace CollectionManagement.DataAccessLayer
                             command.Parameters.Add(new SqlParameter { ParameterName = parameterItem.Key, Value = parameterItem.Value });
                         }
                     }
-                    command.Parameters.Add(dbHelperModel.SqlParameter);
-                    command.Parameters.Add("@OutTransactionId", SqlDbType.Char, 500);
-                    command.Parameters["@OutTransactionId"].Direction = ParameterDirection.Output;
-
+                    if (dbHelperModel.SqlParameter != null)
+                    {
+                        command.Parameters.Add(dbHelperModel.SqlParameter);
+                        command.Parameters.Add("@OutTransactionId", SqlDbType.Char, 500);
+                        command.Parameters["@OutTransactionId"].Direction = ParameterDirection.Output;
+                    }
                     var result = command.ExecuteNonQuery();
-
-                    transactionId = (string)command.Parameters["@OutTransactionId"].Value;
-
+                    if (dbHelperModel.SqlParameter != null)
+                    {
+                        transactionId = (string)command.Parameters["@OutTransactionId"].Value;
+                    }
+                    else transactionId = "0";
                     return result;
                 }
             }
